@@ -1,0 +1,10 @@
+.idea
+*.egg-info
+*.pyc
+*-checkpoint.ipynb
+*.code-workspace
+
+images/content/hidden/
+images/style/hidden/
+images/output/
+datasets/
