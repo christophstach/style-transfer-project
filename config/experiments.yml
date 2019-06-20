@@ -30,38 +30,38 @@ defaults:
   style_image_size: 512
 
 runs:
-  net1__s5__m32:
-    bottleneck_size: 5
-    channel_multiplier: 32
+  - net1__s5__m32:
+      bottleneck_size: 5
+      channel_multiplier: 32
 
-  net2__s5__m16:
-    bottleneck_size: 5
-    channel_multiplier: 16
+  - net2__s5__m16:
+      bottleneck_size: 5
+      channel_multiplier: 16
 
-  net3__s5__m8:
-    bottleneck_size: 5
-    channel_multiplier: 8
+  - net3__s5__m8:
+      bottleneck_size: 5
+      channel_multiplier: 8
 
-  net4__s4__m32:
-    bottleneck_size: 4
-    channel_multiplier: 32
+  - net4__s4__m32:
+      bottleneck_size: 4
+      channel_multiplier: 32
 
-  net5__s4__m16:
-    bottleneck_size: 4
-    channel_multiplier: 16
+  - net5__s4__m16:
+      bottleneck_size: 4
+      channel_multiplier: 16
 
-  net6__s4__m8:
-    bottleneck_size: 4
-    channel_multiplier: 8
+  - net6__s4__m8:
+      bottleneck_size: 4
+      channel_multiplier: 8
 
-  net7__s3__m32:
-    bottleneck_size: 3
-    channel_multiplier: 32
+  - net7__s3__m32:
+      bottleneck_size: 3
+      channel_multiplier: 32
 
-  net8__s3__m16:
-    bottleneck_size: 3
-    channel_multiplier: 16
+  - net8__s3__m16:
+      bottleneck_size: 3
+      channel_multiplier: 16
 
-  net9__s3__m8:
-    bottleneck_size: 3
-    channel_multiplier: 8
+  - net9__s3__m8:
+      bottleneck_size: 3
+      channel_multiplier: 8

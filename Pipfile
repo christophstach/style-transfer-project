@@ -19,6 +19,7 @@ pyopenssl = "*"
 matplotlib = "*"
 torchsummary = "*"
 future = "*"
+yaml = "*"
 
 [requires]
 python_version = "3.6"
