@@ -127,7 +127,7 @@ def list_styles():
             'name': checkpoint2uri(checkpoint)
         }
         for checkpoint in checkpoints
-        if isfile(f'{CHECKPOINTS_PATH}/{checkpoint}') and '__' not in checkpoint
+        if isfile(f'{CHECKPOINTS_PATH}/{checkpoint}')
     ]
 
     response = {
