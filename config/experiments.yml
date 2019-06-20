@@ -1,0 +1,67 @@
+defaults:
+  lr_scheduler: StepLR
+  min_lr: 0
+  max_lr: 1e-3
+  lr_step_size: 2350
+  lr_multiplicator: 0.1
+  dataset: coco
+  dataset_path: /home/s0555912/.datasets/
+  epochs: 2
+  augmentation: true
+  batch_size: 5
+  active: true
+  channel_multiplier: 32
+  content_image_size: 512
+  total_variation_weight: 1e-6
+  bottleneck_type: RESIDUAL_BLOCK
+  bottleneck_size: 5
+  expansion_factor: 6
+  max_runtime: 21600 # 6 Stunden
+  network: STYLIZED_NET
+  save_checkpoint_interval: 100
+  intermediate_activation_fn: PReLU
+  final_activation_fn: Hardtanh
+  content_layers: [relu3_3]
+  style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
+  loss_network: vgg16
+  style_image: starry_night.jpg # https://en.wikipedia.org/wiki/File:VanGogh-starry_night_ballance1.jpg
+  content_weight: 1
+  style_weight: 1e7
+  style_image_size: 512
+
+runs:
+  net1__s5__m32:
+    bottleneck_size: 5
+    channel_multiplier: 32
+
+  net2__s5__m16:
+    bottleneck_size: 5
+    channel_multiplier: 16
+
+  net3__s5__m8:
+    bottleneck_size: 5
+    channel_multiplier: 8
+
+  net4__s4__m32:
+    bottleneck_size: 4
+    channel_multiplier: 32
+
+  net5__s4__m16:
+    bottleneck_size: 4
+    channel_multiplier: 16
+
+  net6__s4__m8:
+    bottleneck_size: 4
+    channel_multiplier: 8
+
+  net7__s3__m32:
+    bottleneck_size: 3
+    channel_multiplier: 32
+
+  net8__s3__m16:
+    bottleneck_size: 3
+    channel_multiplier: 16
+
+  net9__s3__m8:
+    bottleneck_size: 3
+    channel_multiplier: 8
