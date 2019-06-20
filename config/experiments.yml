@@ -12,7 +12,7 @@ defaults:
   active: true
   channel_multiplier: 32
   content_image_size: 512
-  total_variation_weight: 1e-6
+  total_variation_weight: 0
   bottleneck_type: RESIDUAL_BLOCK
   bottleneck_size: 5
   expansion_factor: 6
