@@ -80,6 +80,9 @@ class Trainer:
                 eta_min=config['min_lr'],
                 T_mult=int(self.config['lr_multiplicator'])
             )
+        else:
+            self.optimizer = optim.Adam(self.model.parameters(), lr=config['max_lr'])
+            self.scheduler = None
 
         if tensorboard:
             self.tensorboard_writer = SummaryWriter(log_dir=os.path.join('../runs', config['name']))
@@ -103,6 +106,9 @@ class Trainer:
             self.loss_history = checkpoint['loss_history']
             self.lr_history = checkpoint['lr_history']
 
+            del checkpoint
+            torch.cuda.empty_cache()
+
     def train(self):
         start = time()
 
@@ -115,7 +121,7 @@ class Trainer:
 
                 if self.config['lr_scheduler'] == 'ReduceLROnPlateau':
                     self.scheduler.step(self.loss_history[-1])
-                else:
+                elif self.scheduler:
                     self.scheduler.step()
 
                 if i % self.config['save_checkpoint_interval'] == 0:

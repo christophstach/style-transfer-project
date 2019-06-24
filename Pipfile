@@ -21,6 +21,7 @@ torchsummary = "*"
 future = "*"
 yaml = "*"
 tb-nightly = "*"
+prettytable = "*"
 
 [requires]
 python_version = "3.6"
