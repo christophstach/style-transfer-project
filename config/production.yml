@@ -8,7 +8,7 @@ defaults:
   dataset_path: /home/s0555912/.datasets/
   epochs: 4
   augmentation: false
-  batch_size: 4
+  batch_size: 12
   active: true
   channel_multiplier: 32
   content_image_size: 256
