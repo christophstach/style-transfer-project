@@ -6,9 +6,9 @@ defaults:
   lr_multiplicator: 0.1
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 3
+  epochs: 1
   augmentation: false
-  batch_size: 12
+  batch_size: 16
   active: true
   channel_multiplier: 32
   content_image_size: 256
@@ -18,7 +18,7 @@ defaults:
   expansion_factor: 6
   max_runtime: 0
   network: STYLIZED_NET
-  save_checkpoint_interval: 250
+  save_checkpoint_interval: 100
   intermediate_activation_fn: PReLU
   final_activation_fn: Hardtanh
   content_layers: [relu3_3]
