@@ -118,7 +118,7 @@ class Trainer:
             self.epoch_loss_history = []
 
             for i, batch in enumerate(self.dataloader):
-                self.do_training_step(batch)
+                self.do_training_step(i, batch)
                 self.do_progress_bar_step(epoch, self.config['epochs'], i)
 
                 if self.config['lr_scheduler'] == 'ReduceLROnPlateau':
@@ -134,7 +134,7 @@ class Trainer:
 
         torch.cuda.empty_cache()
 
-    def do_training_step(self, batch):
+    def do_training_step(self, i, batch):
         self.model.train()
 
         with torch.autograd.detect_anomaly():
@@ -163,7 +163,7 @@ class Trainer:
                 self.total_variation_loss_history.append(self.criterion.total_variation_loss_val)
                 self.loss_history.append(self.criterion.loss_val)
 
-                if self.tensorboard_writer:
+                if self.tensorboard_writer and i % self.config['save_checkpoint_interval'] == 0:
                     grid_y = torchvision.utils.make_grid(y)
                     grid_preds = torchvision.utils.make_grid(preds)
 
