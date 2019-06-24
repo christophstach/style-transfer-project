@@ -98,7 +98,9 @@ class Trainer:
 
             self.model.load_state_dict(checkpoint['model_state_dict'])
             self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-            self.scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+
+            if self.scheduler:
+                self.scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
 
             self.content_loss_history = checkpoint['content_loss_history']
             self.style_loss_history = checkpoint['style_loss_history']
