@@ -129,7 +129,7 @@ class Trainer:
                 if i % self.config['save_checkpoint_interval'] == 0:
                     self.save_checkpoint(f'../checkpoints/{self.config["name"]}.pth')
 
-                if time() - start >= self.config['max_runtime']:
+                if time() - start >= self.config['max_runtime'] != 0:
                     break
 
         torch.cuda.empty_cache()
