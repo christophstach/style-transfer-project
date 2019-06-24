@@ -18,7 +18,7 @@ defaults:
   expansion_factor: 6
   max_runtime: 0
   network: STYLIZED_NET
-  save_checkpoint_interval: 100
+  save_checkpoint_interval: 250
   intermediate_activation_fn: PReLU
   final_activation_fn: Hardtanh
   content_layers: [relu3_3]
