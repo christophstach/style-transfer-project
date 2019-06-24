@@ -246,7 +246,7 @@ class Trainer:
         torch.save({
             'model_state_dict': self.model.state_dict(),
             'optimizer_state_dict': self.optimizer.state_dict(),
-            'scheduler_state_dict': self.scheduler.state_dict(),
+            'scheduler_state_dict': self.scheduler.state_dict() if self.scheduler else None,
             'content_loss_history': self.content_loss_history,
             'style_loss_history': self.style_loss_history,
             'total_variation_loss_history': self.total_variation_loss_history,
