@@ -3,7 +3,7 @@ from time import time
 import torch.cuda
 from torchsummary import summary
 
-from csfnst.fastneuralstyle.networks import CustomTransformerNetInterpolate, StylizedNet, BottleneckType
+from csfnst.fastneuralstyle.networks import CustomTransformerNetInterpolate, TransformerNet, BottleneckType
 from csfnst.utils import load_image
 
 image_size = 400
@@ -14,8 +14,8 @@ device = torch.device('cuda' if torch.cuda.is_available() and not force_cpu else
 content_image = load_image(content_image_file, size=(image_size, image_size)).to(device)
 
 n1 = CustomTransformerNetInterpolate(channel_multiplier=32).to(device)
-n2 = StylizedNet(channel_multiplier=16, bottleneck_size=5, bottleneck_type=BottleneckType.MOBILE_VERSION_TWO_BLOCK,
-                 expansion_factor=6).to(device)
+n2 = TransformerNet(channel_multiplier=16, bottleneck_size=5, bottleneck_type=BottleneckType.MOBILE_VERSION_TWO_BLOCK,
+                    expansion_factor=6).to(device)
 n1.eval()
 n2.eval()
 

@@ -21,14 +21,15 @@ def get_activation_fn(name):
         'CELU': lambda: nn.CELU(),
         'ReLU6': lambda: nn.ReLU6(),
         'Hardtanh': lambda: nn.Hardtanh(min_val=0.0, max_val=1.0),
-        'Sigmoid': lambda: nn.Sigmoid()
+        'Sigmoid': lambda: nn.Sigmoid(),
+        'None': lambda: None
     }
 
     return activation_fn_map[name]()
 
 
 class ConvBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, activation_fn='PReLU'):
+    def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, activation_fn='None'):
         super(ConvBlock, self).__init__()
 
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size, stride)
@@ -36,14 +37,15 @@ class ConvBlock(nn.Module):
         self.activation_fn = get_activation_fn(activation_fn)
 
     def forward(self, x):
-        x = self.activation_fn(self.norm(self.conv(x)))
+        x = self.norm(self.conv(x))
+        x = self.activation_fn(x) if self.activation_fn else x
 
         return x
 
 
 class UpSampleBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, scale_factor=None,
-                 activation_fn='Hardtanh'):
+                 activation_fn='None'):
         super(UpSampleBlock, self).__init__()
 
         self.scale_factor = scale_factor
@@ -64,7 +66,7 @@ class UpSampleBlock(nn.Module):
 
 
 class ResidualBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, inner_channels=None, kernel_size=3, activation_fn='PReLU'):
+    def __init__(self, in_channels, out_channels, inner_channels=None, kernel_size=3, activation_fn='None'):
         super(ResidualBlock, self).__init__()
 
         inner_channels = inner_channels if inner_channels else in_channels
@@ -83,7 +85,8 @@ class ResidualBlock(nn.Module):
     def forward(self, x):
         identity = x
 
-        x = self.activation_fn(self.norm1(self.conv1(self.pad1(x))))
+        x = self.norm1(self.conv1(self.pad1(x)))
+        x = self.activation_fn(x) if self.activation_fn else x
         x = self.norm2(self.conv2(self.pad2(x)))
 
         return x + identity
@@ -91,7 +94,7 @@ class ResidualBlock(nn.Module):
 
 class MobileVersionTwoBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, expansion_factor=6,
-                 use_skip_connection=True, activation_fn1='ReLU6', activation_fn2='ReLU6'):
+                 use_skip_connection=True, activation_fn1='None', activation_fn2='None'):
         super(MobileVersionTwoBlock, self).__init__()
 
         inner_channels = in_channels * expansion_factor
@@ -115,8 +118,10 @@ class MobileVersionTwoBlock(nn.Module):
         identity = x
         x = self.pad(x)
 
-        x = self.activation_fn1(self.norm1(self.conv1(x)))
-        x = self.activation_fn2(self.norm2(self.conv2(x)))
+        x = self.norm1(self.conv1(x))
+        x = self.activation_fn1(x) if self.activation_fn1 else x
+        x = self.norm2(self.conv2(x))
+        x = self.activation_fn2() if self.activation_fn2 else x
         x = self.norm3(self.conv3(x))
 
         if self.use_skip_connection:
@@ -146,7 +151,7 @@ class ZeroPadding(torch.nn.Module):
 
 class ConcatUpSampleBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, scale_factor=None,
-                 activation_fn='Hardtanh'):
+                 activation_fn='None'):
         super(ConcatUpSampleBlock, self).__init__()
 
         self.scale_factor = scale_factor
@@ -172,7 +177,7 @@ class ConcatUpSampleBlock(nn.Module):
 
 class MobileVersionOneBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, use_skip_connection=True,
-                 activation_fn1='ReLU6', activation_fn2='ReLU6'):
+                 activation_fn1='None', activation_fn2='None'):
         super(MobileVersionOneBlock, self).__init__()
 
         self.use_skip_connection = use_skip_connection
@@ -192,13 +197,11 @@ class MobileVersionOneBlock(nn.Module):
         identity = x
         x = self.pad(x)
 
-        x = self.conv1(x)
-        x = self.norm1(x)
-        x = self.activation_fn1(x)
+        x = self.norm1(self.conv1(x))
+        x = self.activation_fn1(x) if self.activation_fn1 else x
 
-        x = self.conv2(x)
-        x = self.norm2(x)
-        x = self.activation_fn2(x)
+        x = self.norm2(self.conv2(x))
+        x = self.activation_fn2(x) if self.activation_fn2 else x
 
         if self.use_skip_connection:
             return x + identity
@@ -206,17 +209,17 @@ class MobileVersionOneBlock(nn.Module):
             return x
 
 
-class StylizedNet(nn.Module):
+class TransformerNet(nn.Module):
     def __init__(
             self,
             channel_multiplier=32,
             bottleneck_size=5,
             bottleneck_type=BottleneckType.RESIDUAL_BLOCK,
             expansion_factor=6,
-            final_activation_fn='Hardtanh',
-            intermediate_activation_fn='PReLU'
+            final_activation_fn='None',
+            intermediate_activation_fn='None'
     ):
-        super(StylizedNet, self).__init__()
+        super(TransformerNet, self).__init__()
 
         self.pad = nn.ReflectionPad2d(padding=20)
 
