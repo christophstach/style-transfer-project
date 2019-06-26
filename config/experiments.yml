@@ -11,8 +11,6 @@ defaults:
   batch_size: 16
   active: true
   channel_multiplier: 32
-  content_image_size: 256
-  total_variation_weight: 0
   bottleneck_type: RESIDUAL_BLOCK
   bottleneck_size: 5
   expansion_factor: 6
@@ -24,10 +22,12 @@ defaults:
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
   loss_network: vgg16
-  style_image: starry_night.jpg # https://en.wikipedia.org/wiki/File:VanGogh-starry_night_ballance1.jpg
+  style_image: starry_night.jpg
   content_weight: 1
   style_weight: 1e7
+  total_variation_weight: 1e-4
   style_image_size: 512
+  content_image_size: 256
 
 runs:
   - experiment__net1__s5__m32__residual_block:
