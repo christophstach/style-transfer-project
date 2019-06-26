@@ -11,7 +11,7 @@ from PIL import Image
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 
-from csfnst.fastneuralstyle.networks import StylizedNet, BottleneckType
+from csfnst.fastneuralstyle.networks import TransformerNet, BottleneckType
 from csfnst.utils import save_image_tensor
 
 CHECKPOINTS_PATH = './checkpoints'
@@ -51,7 +51,7 @@ def load_style_model(style, device_type):
         else:
             checkpoint = torch.load(uri2checkpoint(style), map_location={'cuda:0': 'cpu'})
 
-        models[style] = StylizedNet(
+        models[style] = TransformerNet(
             channel_multiplier=checkpoint['channel_multiplier'],
             expansion_factor=checkpoint['expansion_factor'],
             bottleneck_type=BottleneckType[checkpoint['bottleneck_type'].replace('BottleneckType.', '')],

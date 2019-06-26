@@ -17,15 +17,15 @@ defaults:
   max_runtime: 0
   network: STYLIZED_NET
   save_checkpoint_interval: 100
-  intermediate_activation_fn: PReLU
-  final_activation_fn: Hardtanh
+  intermediate_activation_fn: ReLU
+  final_activation_fn: None
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
   loss_network: vgg16
   style_image: starry_night.jpg
   content_weight: 1
-  style_weight: 1e8
-  total_variation_weight: 1e-4
+  style_weight: 1e7
+  total_variation_weight: 0
   style_image_size: 512
   content_image_size: 256
 
