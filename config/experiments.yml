@@ -18,7 +18,7 @@ defaults:
   network: TRANSFORMER_NET
   save_checkpoint_interval: 100
   intermediate_activation_fn: ReLU
-  final_activation_fn: None
+  final_activation_fn: Hardtanh
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
   loss_network: vgg16
