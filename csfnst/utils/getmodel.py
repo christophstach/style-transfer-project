@@ -1,8 +1,8 @@
-from csfnst.fastneuralstyle.networks import TransformerNet
+from csfnst.fastneuralstyle.networks import StylizedNet
 
 
 def get_model(config):
-    model = TransformerNet(
+    model = StylizedNet(
         channel_multiplier=config['channel_multiplier'],
         expansion_factor=config['expansion_factor'],
         bottleneck_type=config['bottleneck_type'],

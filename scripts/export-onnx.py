@@ -2,7 +2,7 @@ import os.path
 
 import torch
 
-from csfnst.fastneuralstyle.networks import TransformerNet, BottleneckType
+from csfnst.fastneuralstyle.networks import StylizedNet, BottleneckType
 from csfnst.utils import export_onnx
 
 
@@ -29,7 +29,7 @@ while True:
 
 checkpoint = torch.load(checkpoints_path + models[decision])
 
-model = TransformerNet(
+model = StylizedNet(
     channel_multiplier=checkpoint['channel_multiplier'],
     bottleneck_size=checkpoint['bottleneck_size'],
     bottleneck_type=BottleneckType[checkpoint['bottleneck_type'].replace('BottleneckType.', '')],
