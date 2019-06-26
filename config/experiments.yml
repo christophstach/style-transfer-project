@@ -15,7 +15,7 @@ defaults:
   bottleneck_size: 5
   expansion_factor: 6
   max_runtime: 0
-  network: STYLIZED_NET
+  network: TRANSFORMER_NET
   save_checkpoint_interval: 100
   intermediate_activation_fn: ReLU
   final_activation_fn: None
