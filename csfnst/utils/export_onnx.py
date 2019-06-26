@@ -4,10 +4,6 @@ import torch
 import torch.cuda
 import torch.onnx
 
-from csfnst.fastneuralstyle.networks import NetworkArchitecture, TransformerNetConvTranspose, TransformerNetInterpolate, \
-    TextureNet, TransformerNetInterpolateLarge, TransformerNetConvTransposeLarge, \
-    StachMobileFullResidualNet, StachMobileNet, CustomTransformerNetInterpolate
-
 
 def export_onnx(
         network,
