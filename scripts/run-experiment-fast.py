@@ -30,7 +30,7 @@ model = model.to(device).eval()
         return -1
 
 
-iterations = 100
+iterations = 10
 
 size = (1024, 768)
 print('###################################')
