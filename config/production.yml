@@ -10,20 +10,20 @@ defaults:
   augmentation: false
   batch_size: 16
   active: true
-  channel_multiplier: 32
+  channel_multiplier: 8
   content_image_size: 256
   style_image_size: 512
   content_weight: 1
   style_weight: 1e7
   total_variation_weight: 1e-6
   bottleneck_type: RESIDUAL_BLOCK
-  bottleneck_size: 5
+  bottleneck_size: 3
   expansion_factor: 6
   max_runtime: 0
   network: TRANSFORMER_NET
   save_checkpoint_interval: 100
   intermediate_activation_fn: PReLU
-  final_activation_fn: Hardtanh
+  final_activation_fn: Sigmoid
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
   loss_network: vgg16
