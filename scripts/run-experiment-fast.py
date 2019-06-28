@@ -7,25 +7,17 @@ def measure_average_time(s, m, checkpoint_name, image_size, runs=1, device_type=
 gc.enable()
     
 import torch
-from csfnst.fastneuralstyle.networks import StylizedNet
+from csfnst.fastneuralstyle.networks import TransformerNet
 
 s = %s
 m = %s
 device_type = "%s"
 device = torch.device(device_type)
 
-model = StylizedNet(bottleneck_size=s, channel_multiplier=m)
-
-if device_type == 'cuda':
-    checkpoint = torch.load("../checkpoints/%s")
-else:
-    checkpoint = torch.load("../checkpoints/%s", map_location={'cuda:0': 'cpu'})
-
-model.load_state_dict(checkpoint['model_state_dict'])
-
+model = TransformerNet(bottleneck_size=s, channel_multiplier=m, intermediate_activation_fn='RReLU', final_activation_fn='Sigmoid')
 tensor = torch.randn((1, 3) + (%s, %s)).to(device)
 model = model.to(device).eval()    
-    ''' % (s, m, device_type, checkpoint_name, checkpoint_name, image_size[0], image_size[1])
+    ''' % (s, m, device_type, image_size[0], image_size[1])
 
     code = 'model(tensor)'
 
@@ -34,11 +26,11 @@ model = model.to(device).eval()
             stmt=code,
             setup=setup
         ).timeit(runs) / float(runs)
-    except Exception:
+    except Exception as e:
         return -1
 
 
-iterations = 100
+iterations = 10
 
 size = (1024, 768)
 print('###################################')
