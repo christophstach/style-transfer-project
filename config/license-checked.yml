@@ -16,7 +16,7 @@ defaults:
   batch_size: 16
 
   network: TRANSFORMER_NET
-  channel_multiplier: 32
+  channel_multiplier: 8
   bottleneck_size: 5
   bottleneck_type: RESIDUAL_BLOCK
   expansion_factor: 6
