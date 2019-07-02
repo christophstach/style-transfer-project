@@ -9,7 +9,7 @@ defaults:
   epochs: 2
   augmentation: false
   batch_size: 16
-  active: true
+  active: false
   channel_multiplier: 32
   bottleneck_type: RESIDUAL_BLOCK
   bottleneck_size: 5

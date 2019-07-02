@@ -27,7 +27,7 @@ defaults:
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
   content_weight: 1
-  style_weight: 5e7
+  style_weight: 2e7
   total_variation_weight: 0
   style_image_size: 512
   content_image_size: 256
