@@ -6,7 +6,7 @@ defaults:
   lr_multiplicator: 0.1
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 3
+  epochs: 2
   augmentation: false
   batch_size: 16
   active: true
