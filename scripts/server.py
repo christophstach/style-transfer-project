@@ -66,7 +66,7 @@ def load_style_model(style, device_type):
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = GENERATED_IMAGE_PATH
-CORS(app)
+# CORS(app)
 
 
 @app.route('/style-transfer/generated/<path:image>', methods=['GET'])
