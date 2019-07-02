@@ -54,7 +54,10 @@ for run_config_file in listdir(run_configs_path):
                 model=model,
                 criterion=criterion,
                 dataloader=dataloader,
-                data_transformer=lambda batch: (batch[0], batch[0])
+                data_transformer=lambda batch: (batch[0], batch[0]),
+                meta_data={
+                    'attribution': config['attribution']
+                }
             )
 
             trainer.load_checkpoint()

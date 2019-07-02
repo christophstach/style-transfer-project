@@ -16,7 +16,7 @@ warnings.filterwarnings('ignore')
 
 
 class Trainer:
-    def __init__(self, device, config, model, criterion, dataloader, data_transformer=None, tensorboard=True):
+    def __init__(self, device, config, model, criterion, dataloader, data_transformer=None, tensorboard=True, meta_data=None):
         super().__init__()
 
         config['running_loss_range'] = config['running_loss_range'] if 'running_loss_range' in config else 50
@@ -38,6 +38,7 @@ class Trainer:
         self.total_variation_loss_history = []
         self.loss_history = []
         self.lr_history = []
+        self.meta_data = meta_data
 
         self.progress_bar = trange(
             math.ceil(self.ds_length / self.batch_size) * self.config['epochs'],
@@ -263,5 +264,6 @@ class Trainer:
             'channel_multiplier': self.config['channel_multiplier'],
             'expansion_factor': self.config['expansion_factor'],
             'intermediate_activation_fn': self.config['intermediate_activation_fn'],
-            'final_activation_fn': self.config['final_activation_fn']
+            'final_activation_fn': self.config['final_activation_fn'],
+            'meta_data': self.meta_data
         }, path)
