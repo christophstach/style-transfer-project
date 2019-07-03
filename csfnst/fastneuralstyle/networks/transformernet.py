@@ -210,15 +210,8 @@ class MobileVersionOneBlock(nn.Module):
 
 
 class TransformerNet(nn.Module):
-    def __init__(
-            self,
-            channel_multiplier=32,
-            bottleneck_size=5,
-            bottleneck_type=BottleneckType.RESIDUAL_BLOCK,
-            expansion_factor=6,
-            final_activation_fn='None',
-            intermediate_activation_fn='None'
-    ):
+    def __init__(self, channel_multiplier=32, bottleneck_size=5, bottleneck_type=BottleneckType.RESIDUAL_BLOCK,
+                 expansion_factor=6, final_activation_fn='None', intermediate_activation_fn='None'):
         super(TransformerNet, self).__init__()
 
         self.pad = nn.ReflectionPad2d(padding=20)
@@ -245,13 +238,10 @@ class TransformerNet(nn.Module):
 
     def forward(self, x):
         x = self.pad(x)
-
         x = self.down1(x)
         x = self.down2(x)
         x = self.down3(x)
-
         x = self.bottleneck(x)
-
         x = self.up1(x)
         x = self.up2(x)
         x = self.up3(x)
