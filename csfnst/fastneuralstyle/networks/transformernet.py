@@ -234,20 +234,6 @@ class TransformerNet(nn.Module):
                 ResidualBlock(channel_multiplier * 4, channel_multiplier * 4, activation_fn=intermediate_activation_fn)
                 for _ in range(bottleneck_size)
             ])
-        elif bottleneck_type == BottleneckType.MOBILE_VERSION_ONE_BLOCK:
-            self.bottleneck = nn.Sequential(*[
-                MobileVersionOneBlock(channel_multiplier * 4, channel_multiplier * 4,
-                                      activation_fn1=intermediate_activation_fn,
-                                      activation_fn2=intermediate_activation_fn)
-                for _ in range(bottleneck_size)
-            ])
-        elif bottleneck_type == BottleneckType.MOBILE_VERSION_TWO_BLOCK:
-            self.bottleneck = nn.Sequential(*[
-                MobileVersionTwoBlock(channel_multiplier * 4, channel_multiplier * 4, expansion_factor=expansion_factor,
-                                      activation_fn1=intermediate_activation_fn,
-                                      activation_fn2=intermediate_activation_fn)
-                for _ in range(bottleneck_size)
-            ])
         else:
             raise ValueError('Wrong value for bottleneck_type')
 
