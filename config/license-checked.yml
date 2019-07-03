@@ -10,7 +10,7 @@ defaults:
 
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 2
+  epochs: 3
   max_runtime: 0
   augmentation: false
   batch_size: 16
@@ -42,7 +42,7 @@ runs:
         published_url: https://www.moma.org/collection/works/79802
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - portrait_of_joseph_roulin:
       style_image: license-checked/portrait_of_joseph_roulin.jpg
@@ -52,7 +52,7 @@ runs:
         published_url: https://www.moma.org/collection/works/79105
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - the_olive_trees:
       style_image: license-checked/the_olive_trees.jpg
@@ -62,7 +62,7 @@ runs:
         published_url: https://www.moma.org/collection/works/80013
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   # Salvador Dalí
   - the_persistence_of_memory:
@@ -73,7 +73,7 @@ runs:
         published_url: https://www.moma.org/collection/works/79018
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - the_little_theater:
       style_image: license-checked/the_little_theater.jpg
@@ -83,7 +83,7 @@ runs:
         published_url: https://www.moma.org/collection/works/80884
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   # Pablo Picasso
   - meditation:
@@ -94,7 +94,7 @@ runs:
         published_url: https://www.moma.org/collection/works/33823
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - two_acrobats_with_a_dog:
       style_image: license-checked/two_acrobats_with_a_dog.jpg
@@ -104,7 +104,7 @@ runs:
         published_url: https://www.moma.org/collection/works/35378
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - bathers_in_a_forest:
       style_image: license-checked/bathers_in_a_forest.jpg
@@ -114,7 +114,7 @@ runs:
         published_url: https://www.moma.org/collection/works/33370
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - still_life_with_liqueur_bottle:
       style_image: license-checked/still_life_with_liqueur_bottle.jpg
@@ -124,7 +124,7 @@ runs:
         published_url: https://www.moma.org/collection/works/78986
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   - ma_jolie:
       style_image: license-checked/ma_jolie.jpg
@@ -134,7 +134,7 @@ runs:
         published_url: https://www.moma.org/collection/works/79051
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
         credits_to: Musuem of Modern Arts (MoMA)
-        credtis_to_url: https://www.moma.org
+        credits_to_url: https://www.moma.org
 
   # Pexels
   - photo_of_geological_formation:
@@ -145,7 +145,7 @@ runs:
         published_url: https://www.pexels.com/photo/photo-of-geological-formation-2537641
         terms_of_use_url: https://www.pexels.com/photo-license
         credits_to: Pexels
-        credtis_to_url: https://www.pexels.com
+        credits_to_url: https://www.pexels.com
 
   - crystal_glass_on_a_colorful_background:
       style_image: license-checked/crystal_glass_on_a_colorful_background.jpg
@@ -155,7 +155,7 @@ runs:
         published_url: https://www.pexels.com/photo/crystal-glass-on-a-colorful-background-2179374
         terms_of_use_url: https://www.pexels.com/photo-license
         credits_to: Pexels
-        credtis_to_url: https://www.pexels.com
+        credits_to_url: https://www.pexels.com
 
   - multicolored_abstract_artwork:
       style_image: license-checked/multicolored_abstract_artwork.jpg
@@ -165,7 +165,7 @@ runs:
         published_url: https://www.pexels.com/photo/abstract-abstract-painting-art-artistic-1149019
         terms_of_use_url: https://www.pexels.com/photo-license
         credits_to: Pexels
-        credtis_to_url: https://www.pexels.com
+        credits_to_url: https://www.pexels.com
 
   - multicolored_abstract_art:
       style_image: license-checked/multicolored_abstract_art.jpg
@@ -175,7 +175,7 @@ runs:
         published_url: https://www.pexels.com/photo/multicolored-abstract-art-2062637
         terms_of_use_url: https://www.pexels.com/photo-license
         credits_to: Pexels
-        credtis_to_url: https://www.pexels.com
+        credits_to_url: https://www.pexels.com
 
   # Nasjonalmuseet
   - the_scream:
@@ -186,4 +186,4 @@ runs:
         published_url: http://samling.nasjonalmuseet.no/en/object/NG.M.00939
         terms_of_use_url: https://creativecommons.org/licenses/by-nc/4.0/deed.en
         credits_to: Nasjonalmuseet / Høstland, Børre
-        credtis_to_url: http://nasjonalmuseet.no
+        credits_to_url: http://nasjonalmuseet.no
