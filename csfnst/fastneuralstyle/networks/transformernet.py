@@ -210,15 +210,8 @@ class MobileVersionOneBlock(nn.Module):
 
 
 class TransformerNet(nn.Module):
-    def __init__(
-            self,
-            channel_multiplier=32,
-            bottleneck_size=5,
-            bottleneck_type=BottleneckType.RESIDUAL_BLOCK,
-            expansion_factor=6,
-            final_activation_fn='None',
-            intermediate_activation_fn='None'
-    ):
+    def __init__(self, channel_multiplier=32, bottleneck_size=5, bottleneck_type=BottleneckType.RESIDUAL_BLOCK,
+                 expansion_factor=6, final_activation_fn='None', intermediate_activation_fn='None'):
         super(TransformerNet, self).__init__()
 
         self.pad = nn.ReflectionPad2d(padding=20)
@@ -234,20 +227,6 @@ class TransformerNet(nn.Module):
                 ResidualBlock(channel_multiplier * 4, channel_multiplier * 4, activation_fn=intermediate_activation_fn)
                 for _ in range(bottleneck_size)
             ])
-        elif bottleneck_type == BottleneckType.MOBILE_VERSION_ONE_BLOCK:
-            self.bottleneck = nn.Sequential(*[
-                MobileVersionOneBlock(channel_multiplier * 4, channel_multiplier * 4,
-                                      activation_fn1=intermediate_activation_fn,
-                                      activation_fn2=intermediate_activation_fn)
-                for _ in range(bottleneck_size)
-            ])
-        elif bottleneck_type == BottleneckType.MOBILE_VERSION_TWO_BLOCK:
-            self.bottleneck = nn.Sequential(*[
-                MobileVersionTwoBlock(channel_multiplier * 4, channel_multiplier * 4, expansion_factor=expansion_factor,
-                                      activation_fn1=intermediate_activation_fn,
-                                      activation_fn2=intermediate_activation_fn)
-                for _ in range(bottleneck_size)
-            ])
         else:
             raise ValueError('Wrong value for bottleneck_type')
 
@@ -259,15 +238,6 @@ class TransformerNet(nn.Module):
 
     def forward(self, x):
         x = self.pad(x)
-
-        x = self.down1(x)
-        x = self.down2(x)
-        x = self.down3(x)
-
+        x = self.down3(self.down2(self.down1(x)))
         x = self.bottleneck(x)
-
-        x = self.up1(x)
-        x = self.up2(x)
-        x = self.up3(x)
-
-        return x
+        return self.up3(self.up2(self.up1(x)))
