@@ -9,7 +9,6 @@ import torch.cuda
 import torchvision.transforms as transforms
 from PIL import Image
 from flask import Flask, request, jsonify, send_file
-from flask_cors import CORS
 
 from csfnst.fastneuralstyle.networks import TransformerNet, BottleneckType
 from csfnst.utils import save_image_tensor
@@ -25,12 +24,7 @@ makedirs(UPLOAD_PATH)
 makedirs(GENERATED_IMAGE_PATH)
 
 models = dict()
-checkpoint_paths = listdir(CHECKPOINTS_PATH)
-checkpoint_paths = [
-    checkpoint_path
-    for checkpoint_path in checkpoint_paths
-    if isfile(CHECKPOINTS_PATH + checkpoint_path)
-]
+styles = []
 
 
 def checkpoint2uri(checkpoint_path):
@@ -60,13 +54,42 @@ def load_style_model(style, device_type):
             final_activation_fn=checkpoint['final_activation_fn']
         )
         models[style].load_state_dict(checkpoint['model_state_dict'])
+        styles.append({
+            'id': style,
+            'name': style,
+            'contentImageSize': checkpoint['content_image_size'],
+            'styleImageSize': checkpoint['style_image_size'],
+            'contentWeight': checkpoint['content_weight'],
+            'styleWeight': checkpoint['style_weight'],
+            'totalVariationWeight': checkpoint['total_variation_weight'],
+            'network': str(checkpoint['network']).replace('NetworkArchitecture.', ''),
+            'bottleneckSize': checkpoint['bottleneck_size'],
+            'bottleneckType': str(checkpoint['bottleneck_type']).replace('BottleneckType.', ''),
+            'channelMultiplier': checkpoint['channel_multiplier'],
+            'expansionFactor': checkpoint['expansion_factor'],
+            'intermediateActivationFn': checkpoint['intermediate_activation_fn'],
+            'finalActivationFn': checkpoint['final_activation_fn'],
+            'metaData': {
+                'attribution': {
+                    'author': checkpoint.get('meta_data', {}).get('attribution', {}).get('author'),
+                    'name': checkpoint.get('meta_data', {}).get('attribution', {}).get('name'),
+                    'creditsTo': checkpoint.get('meta_data', {}).get('attribution', {}).get('credits_to'),
+                    'creditsToUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('credits_to_url'),
+                    'publishedUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('published_url'),
+                    'termsOfUseUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('terms_of_use_url')
+                }
+            }
+        })
 
+    return models[style]
+
+
+def get_style_model(style):
     return models[style]
 
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = GENERATED_IMAGE_PATH
-# CORS(app)
 
 
 @app.route('/style-transfer/generated/<path:image>', methods=['GET'])
@@ -75,8 +98,8 @@ def generated_images(image):
     return send_file('../' + GENERATED_IMAGE_PATH + '/' + image)
 
 
-@app.route('/style-transfer/apply/<device_type>/<style>', methods=['POST'])
-def apply(device_type, style):
+@app.route('/style-transfer/apply/<style>', methods=['POST'])
+def apply(style):
     device = torch.device(device_type)
 
     input_image = request.files['image']
@@ -96,7 +119,7 @@ def apply(device_type, style):
 
     input_tensor = transforms.ToTensor()(image).to(device).unsqueeze(0)
 
-    model = load_style_model(style, device_type).to(device)
+    model = get_style_model(style).to(device)
 
     start = time()
     output_tensor = model(input_tensor)
@@ -120,61 +143,26 @@ def apply(device_type, style):
 
 @app.route('/style-transfer/list-styles', methods=['GET'])
 def list_styles():
-    checkpoints = listdir(CHECKPOINTS_PATH)
-    checkpoints = [
-        {
-            'id': checkpoint2uri(checkpoint),
-            'name': checkpoint2uri(checkpoint)
-        }
-        for checkpoint in checkpoints
-        if isfile(f'{CHECKPOINTS_PATH}/{checkpoint}')
-    ]
-
     response = {
-        'data': checkpoints
-    }
-
-    return jsonify(response)
-
-
-def list_styles2():
-    checkpoints = listdir(CHECKPOINTS_PATH)
-    checkpoints = [
-        {
-            'name': checkpoint2uri(checkpoint),
-            'data': torch.load(f'{CHECKPOINTS_PATH}/{checkpoint}', map_location={'cuda:0': 'cpu'})
-        }
-        for checkpoint in checkpoints
-        if isfile(f'{CHECKPOINTS_PATH}/{checkpoint}') and '__' not in checkpoint
-    ]
-
-    checkpoints = [
-        {
-            'id': checkpoint['name'],
-            'name': checkpoint['name'],
-            'contentImageSize': checkpoint['data']['content_image_size'],
-            'styleImageSize': checkpoint['data']['style_image_size'],
-            'contentWeight': checkpoint['data']['content_weight'],
-            'styleWeight': checkpoint['data']['style_weight'],
-            'totalVariationWeight': checkpoint['data']['total_variation_weight'],
-            'network': checkpoint['data']['network'],
-            'bottleneckSize': checkpoint['data']['bottleneck_size'],
-            'bottleneckType': checkpoint['data']['bottleneck_type'],
-            'channelMultiplier': checkpoint['data']['channel_multiplier'],
-            'expansionFactor': checkpoint['data']['expansion_factor'],
-            'intermediateActivationFn': checkpoint['data']['intermediate_activation_fn'],
-            'finalActivationFn': checkpoint['data']['final_activation_fn']
-
-        }
-        for checkpoint in checkpoints
-    ]
-
-    response = {
-        'data': checkpoints
+        'data': styles
     }
 
     return jsonify(response)
 
 
 if __name__ == '__main__':
+    device_type = 'cpu'
+
+    model_names = listdir(CHECKPOINTS_PATH)
+    model_names = [
+        splitext(checkpoint_path)[0]
+        for checkpoint_path in model_names
+        if isfile(CHECKPOINTS_PATH + '/' + checkpoint_path)
+           and '.pth' in checkpoint_path
+           and 'experiment' not in checkpoint_path
+    ]
+
+    for path in model_names:
+        load_style_model(path, device_type=device_type)
+
     app.run(host='0.0.0.0')
