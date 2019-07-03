@@ -238,12 +238,6 @@ class TransformerNet(nn.Module):
 
     def forward(self, x):
         x = self.pad(x)
-        x = self.down1(x)
-        x = self.down2(x)
-        x = self.down3(x)
+        x = self.down3(self.down2(self.down1(x)))
         x = self.bottleneck(x)
-        x = self.up1(x)
-        x = self.up2(x)
-        x = self.up3(x)
-
-        return x
+        return self.up3(self.up2(self.up1(x)))
