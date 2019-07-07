@@ -179,6 +179,28 @@ runs:
         credits_to: Pexels
         credits_to_url: https://www.pexels.com
 
+  - teal_and_black_abstract_painting:
+      style_image: license-checked/teal_and_black_abstract_painting.jpg
+      style_weight: 1e7
+      attribution:
+        name: Teal And Black Abstract Painting
+        author: Anni Roenkae
+        published_url: https://www.pexels.com/photo/teal-and-black-abstract-painting-2559624
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
+
+  - abstract_painting:
+      style_image: license-checked/abstract_painting.jpg
+      style_weight: 1e7
+      attribution:
+        name: Abstract Painting
+        author: Anni Roenkae
+        published_url: https://www.pexels.com/photo/abstract-painting-2156881
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
+
   # Nasjonalmuseet
   - the_scream:
       style_image: license-checked/the_scream.jpg
@@ -189,3 +211,4 @@ runs:
         terms_of_use_url: https://creativecommons.org/licenses/by-nc/4.0/deed.en
         credits_to: Nasjonalmuseet / Høstland, Børre
         credits_to_url: http://nasjonalmuseet.no
+
