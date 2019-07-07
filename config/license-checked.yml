@@ -10,7 +10,7 @@ defaults:
 
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 3
+  epochs: 1
   max_runtime: 0
   augmentation: false
   batch_size: 16
@@ -149,6 +149,7 @@ runs:
 
   - crystal_glass_on_a_colorful_background:
       style_image: license-checked/crystal_glass_on_a_colorful_background.jpg
+      style_weight: 1e7
       attribution:
         name: Crystal Glass On A Colorful Background
         author: Steve Johnson
@@ -169,6 +170,7 @@ runs:
 
   - multicolored_abstract_art:
       style_image: license-checked/multicolored_abstract_art.jpg
+      style_weight: 3e6
       attribution:
         name: Multicolored Abstract Art
         author: Amber Lamoreaux
@@ -179,7 +181,7 @@ runs:
 
   # Nasjonalmuseet
   - the_scream:
-      style_image: license-checked/multicolored_abstract_art.jpg
+      style_image: license-checked/the_scream.jpg
       attribution:
         name: The Scream
         author: Edvard Munch
