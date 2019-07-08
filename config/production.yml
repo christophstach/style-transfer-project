@@ -1,121 +1,214 @@
 defaults:
+  active: true
+  save_checkpoint_interval: 100
+
   lr_scheduler: None
   min_lr: 0
   max_lr: 1e-3
   lr_step_size: 2350
   lr_multiplicator: 0.1
+
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 2
+  epochs: 1
+  max_runtime: 0
   augmentation: false
   batch_size: 16
-  active: false
-  channel_multiplier: 8
-  content_image_size: 256
-  style_image_size: 512
-  content_weight: 1
-  style_weight: 1e7
-  total_variation_weight: 1e-6
-  bottleneck_type: RESIDUAL_BLOCK
-  bottleneck_size: 3
-  expansion_factor: 6
-  max_runtime: 0
+
   network: TRANSFORMER_NET
-  save_checkpoint_interval: 100
+  channel_multiplier: 8
+  bottleneck_size: 5
+  bottleneck_type: RESIDUAL_BLOCK
+  expansion_factor: 6
   intermediate_activation_fn: PReLU
   final_activation_fn: Sigmoid
+
+  loss_network: vgg16
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
-  loss_network: vgg16
+  content_weight: 1
+  style_weight: 2e7
+  total_variation_weight: 0
+  style_image_size: 512
+  content_image_size: 256
 
 runs:
-  - candy_l: # done
-      style_image: candy.jpg # https://bytefreaks.net/photography/neural-style-transfer-candy-style-source/amp
-      total_variation_weight: 1e-5
-      content_weight: 5
-      style_weight: 1e7
-      style_image_size: 768
-      
-  - candy_m: #done
-      style_image: candy.jpg # https://bytefreaks.net/photography/neural-style-transfer-candy-style-source/amp
-      total_variation_weight: 1e-5
-      content_weight: 5
-      style_weight: 1e7
-      style_image_size: 512
+  # Vincent van Gogh
+  - the_starry_night:
+      style_image: the_starry_night.jpg
+      attribution:
+        name: The Starry Night
+        author: Vincent van Gogh
+        published_url: https://www.moma.org/collection/works/79802
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
 
-  - candy_s: #done
-      style_image: candy.jpg # https://bytefreaks.net/photography/neural-style-transfer-candy-style-source/amp
-      total_variation_weight: 1e-5
-      content_weight: 5
+  - portrait_of_joseph_roulin:
+      style_image: portrait_of_joseph_roulin.jpg
+      attribution:
+        name: Portrait of Joseph Roulin
+        author: Vincent van Gogh
+        published_url: https://www.moma.org/collection/works/79105
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  - the_olive_trees:
+      style_image: the_olive_trees.jpg
+      attribution:
+        name: The Olive Trees
+        author: Vincent van Gogh
+        published_url: https://www.moma.org/collection/works/80013
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  # Salvador Dalí
+  - the_persistence_of_memory:
+      style_image: the_persistence_of_memory.jpg
+      attribution:
+        name: The Persistence of Memory
+        author: Salvador Dalí
+        published_url: https://www.moma.org/collection/works/79018
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  - the_little_theater:
+      style_image: the_little_theater.jpg
+      attribution:
+        name: The Little Theater
+        author: Salvador Dalí
+        published_url: https://www.moma.org/collection/works/80884
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  # Pablo Picasso
+  - meditation:
+      style_image: meditation.jpg
+      attribution:
+        name: Meditation
+        author: Pablo Picasso
+        published_url: https://www.moma.org/collection/works/33823
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  - two_acrobats_with_a_dog:
+      style_image: two_acrobats_with_a_dog.jpg
+      attribution:
+        name: Two Acrobats with a Dog
+        author: Pablo Picasso
+        published_url: https://www.moma.org/collection/works/35378
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  - bathers_in_a_forest:
+      style_image: bathers_in_a_forest.jpg
+      attribution:
+        name: Bathers in a Forest
+        author: Pablo Picasso
+        published_url: https://www.moma.org/collection/works/33370
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  - still_life_with_liqueur_bottle:
+      style_image: still_life_with_liqueur_bottle.jpg
+      attribution:
+        name: Still Life with Liqueur Bottle
+        author: Pablo Picasso
+        published_url: https://www.moma.org/collection/works/78986
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  - ma_jolie:
+      style_image: ma_jolie.jpg
+      attribution:
+        name: Ma Jolie
+        author: Pablo Picasso
+        published_url: https://www.moma.org/collection/works/79051
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+        credits_to: Musuem of Modern Arts (MoMA)
+        credits_to_url: https://www.moma.org
+
+  # Pexels
+  - photo_of_geological_formation:
+      style_image: photo_of_geological_formation.jpg
+      attribution:
+        name: Photo of Geological Formation
+        author: Vlad Chețan
+        published_url: https://www.pexels.com/photo/photo-of-geological-formation-2537641
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
+
+  - crystal_glass_on_a_colorful_background:
+      style_image: crystal_glass_on_a_colorful_background.jpg
       style_weight: 1e7
-      style_image_size: 256
+      attribution:
+        name: Crystal Glass On A Colorful Background
+        author: Steve Johnson
+        published_url: https://www.pexels.com/photo/crystal-glass-on-a-colorful-background-2179374
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
 
-  - starry_night: # done
-      style_image: starry_night.jpg # https://en.wikipedia.org/wiki/File:VanGogh-starry_night_ballance1.jpg
-      total_variation_weight: 1e-6
-      content_weight: 1
+  - multicolored_abstract_artwork:
+      style_image: multicolored_abstract_artwork.jpg
+      attribution:
+        name: Multicolored Abstract Artwork
+        author: Sharon McCutcheon
+        published_url: https://www.pexels.com/photo/abstract-abstract-painting-art-artistic-1149019
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
+
+  - multicolored_abstract_art:
+      style_image: multicolored_abstract_art.jpg
+      style_weight: 3e6
+      attribution:
+        name: Multicolored Abstract Art
+        author: Amber Lamoreaux
+        published_url: https://www.pexels.com/photo/multicolored-abstract-art-2062637
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
+
+  - teal_and_black_abstract_painting:
+      style_image: teal_and_black_abstract_painting.jpg
       style_weight: 1e7
-      style_image_size: 768
+      attribution:
+        name: Teal And Black Abstract Painting
+        author: Anni Roenkae
+        published_url: https://www.pexels.com/photo/teal-and-black-abstract-painting-2559624
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
 
-  - the_scream: # done
-      style_image: the_scream.jpg # https://commons.wikimedia.org/wiki/File:The_Scream.jpg
-      total_variation_weight: 1e-8
-      content_weight: 1
+  - abstract_painting:
+      style_image: abstract_painting.jpg
       style_weight: 1e7
-      style_image_size: 768
+      attribution:
+        name: Abstract Painting
+        author: Anni Roenkae
+        published_url: https://www.pexels.com/photo/abstract-painting-2156881
+        terms_of_use_url: https://www.pexels.com/photo-license
+        credits_to: Pexels
+        credits_to_url: https://www.pexels.com
 
-  - mosaic_of_trees: # done
-      style_image: mosaic_of_trees.jpg # https://www.erinhanson.com/p/mosaic_of_trees
-      total_variation_weight: 1e-6
-      content_weight: 1
-      style_weight: 1e7
-      style_image_size: 768
+  # Nasjonalmuseet
+  - the_scream:
+      style_image: the_scream.jpg
+      attribution:
+        name: The Scream
+        author: Edvard Munch
+        published_url: http://samling.nasjonalmuseet.no/en/object/NG.M.00939
+        terms_of_use_url: https://creativecommons.org/licenses/by-nc/4.0/deed.en
+        credits_to: Nasjonalmuseet / Høstland, Børre
+        credits_to_url: http://nasjonalmuseet.no
 
-  - shipwreck: # done
-      style_image: shipwreck.jpg # https://www.artble.com/artists/joseph_mallord_william_turner/paintings/the_shipwreck
-      total_variation_weight: 1e-6
-      content_weight: 1
-      style_weight: 1e7
-      style_image_size: 512
-
-  - seated_nude:
-      style_image: seated_nude.jpg # https://www.pablopicasso.org/seated-nude.jsp
-      total_variation_weight: 0
-      content_weight: 1
-      style_weight: 4e7
-      style_image_size: 512
-
-  - the_old_guitarist:
-      style_image: the_old_guitarist.jpg # https://www.pablopicasso.org/old-guitarist.jsp
-      total_variation_weight: 1e-8
-      content_weight: 1
-      style_weight: 4e7
-      style_image_size: 512
-
-  - bread_and_fruit_dish_on_a_table: # done
-      style_image: bread_and_fruit_dish_on_a_table.jpg # https://www.pablopicasso.org/bread-and-fruit-dish-on-a-table.jsp
-      total_variation_weight: 1e-8
-      content_weight: 1
-      style_weight: 1e7
-      style_image_size: 512
-
-  - vincent_van_gogh_self_portrait:
-      style_image: vincent_van_gogh_self_portrait.jpg # https://en.wikipedia.org/wiki/Vincent_van_Gogh
-      total_variation_weight: 1e-6
-      content_weight: 1
-      style_weight: 1e7
-      style_image_size: 768
-
-  - coquelicots:
-      style_image: coquelicots.jpg # https://www.wikidata.org/wiki/Q3231771
-      total_variation_weight: 1e-6
-      content_weight: 1
-      style_weight: 1e7
-      style_image_size: 768
-
-  - cafe_terrace_at_night:
-      style_image: cafe_terrace_at_night.jpg # https://www.impressionists.org/cafe-terrace-at-night.jsp
-      total_variation_weight: 1e-6
-      content_weight: 1
-      style_weight: 1e7
-      style_image_size: 768
