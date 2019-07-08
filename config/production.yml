@@ -1,5 +1,5 @@
 defaults:
-  active: true
+  active: false
   save_checkpoint_interval: 100
 
   lr_scheduler: None
@@ -159,7 +159,9 @@ runs:
         credits_to_url: https://www.pexels.com
 
   - multicolored_abstract_artwork:
+      active: true
       style_image: multicolored_abstract_artwork.jpg
+      style_weight: 3e6
       attribution:
         name: Multicolored Abstract Artwork
         author: Sharon McCutcheon
