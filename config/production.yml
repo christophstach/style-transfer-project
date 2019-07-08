@@ -161,7 +161,7 @@ runs:
   - multicolored_abstract_artwork:
       active: true
       style_image: multicolored_abstract_artwork.jpg
-      style_weight: 3e6
+      style_weight: 1e5
       attribution:
         name: Multicolored Abstract Artwork
         author: Sharon McCutcheon
