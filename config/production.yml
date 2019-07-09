@@ -10,9 +10,9 @@ defaults:
 
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 1
+  epochs: 2
   max_runtime: 0
-  augmentation: false
+  augmentation: true
   batch_size: 16
 
   network: TRANSFORMER_NET
@@ -27,7 +27,6 @@ defaults:
   content_layers: [relu3_3]
   style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
   content_weight: 1
-  style_weight: 2e7
   total_variation_weight: 0
   style_image_size: 512
   content_image_size: 256
@@ -36,6 +35,7 @@ runs:
   # Vincent van Gogh
   - the_starry_night:
       style_image: the_starry_night.jpg
+      style_weight: 2e7
       attribution:
         name: The Starry Night
         author: Vincent van Gogh
@@ -46,6 +46,7 @@ runs:
 
   - portrait_of_joseph_roulin:
       style_image: portrait_of_joseph_roulin.jpg
+      style_weight: 1e7
       attribution:
         name: Portrait of Joseph Roulin
         author: Vincent van Gogh
@@ -56,6 +57,7 @@ runs:
 
   - the_olive_trees:
       style_image: the_olive_trees.jpg
+      style_weight: 2e7
       attribution:
         name: The Olive Trees
         author: Vincent van Gogh
@@ -67,6 +69,7 @@ runs:
   # Salvador Dalí
   - the_persistence_of_memory:
       style_image: the_persistence_of_memory.jpg
+      style_weight: 1e7
       attribution:
         name: The Persistence of Memory
         author: Salvador Dalí
@@ -77,6 +80,7 @@ runs:
 
   - the_little_theater:
       style_image: the_little_theater.jpg
+      style_weight: 1e7
       attribution:
         name: The Little Theater
         author: Salvador Dalí
@@ -88,6 +92,7 @@ runs:
   # Pablo Picasso
   - meditation:
       style_image: meditation.jpg
+      style_weight: 1e7
       attribution:
         name: Meditation
         author: Pablo Picasso
@@ -98,6 +103,7 @@ runs:
 
   - two_acrobats_with_a_dog:
       style_image: two_acrobats_with_a_dog.jpg
+      style_weight: 2e7
       attribution:
         name: Two Acrobats with a Dog
         author: Pablo Picasso
@@ -108,6 +114,7 @@ runs:
 
   - bathers_in_a_forest:
       style_image: bathers_in_a_forest.jpg
+      style_weight: 1e7
       attribution:
         name: Bathers in a Forest
         author: Pablo Picasso
@@ -118,6 +125,7 @@ runs:
 
   - still_life_with_liqueur_bottle:
       style_image: still_life_with_liqueur_bottle.jpg
+      style_weight: 1e7
       attribution:
         name: Still Life with Liqueur Bottle
         author: Pablo Picasso
@@ -128,6 +136,7 @@ runs:
 
   - ma_jolie:
       style_image: ma_jolie.jpg
+      style_weight: 3e7
       attribution:
         name: Ma Jolie
         author: Pablo Picasso
@@ -139,6 +148,7 @@ runs:
   # Pexels
   - photo_of_geological_formation:
       style_image: photo_of_geological_formation.jpg
+      style_weight: 1e7
       attribution:
         name: Photo of Geological Formation
         author: Vlad Chețan
@@ -206,6 +216,7 @@ runs:
   # Nasjonalmuseet
   - the_scream:
       style_image: the_scream.jpg
+      style_weight: 1e7
       attribution:
         name: The Scream
         author: Edvard Munch
