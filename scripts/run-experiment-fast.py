@@ -84,3 +84,4 @@ t.add_row([
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cpu'), 5),
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cuda'), 5)
 ])
+print(t)
