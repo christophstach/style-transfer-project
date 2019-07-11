@@ -35,7 +35,7 @@ runs:
   # Vincent van Gogh
   - vgg16_the_starry_night:
       style_image: the_starry_night.jpg
-      style_weight: 2e7
+      style_weight: 1e7
       attribution:
         name: The Starry Night
         author: Vincent van Gogh
