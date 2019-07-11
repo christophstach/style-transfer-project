@@ -10,7 +10,7 @@ defaults:
 
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 4
+  epochs: 3
   max_runtime: 0
   augmentation: true
   batch_size: 24
