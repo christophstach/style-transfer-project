@@ -82,15 +82,7 @@ t.add_row([
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cpu'), 5),
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cuda'), 5)
 ])
-print(t)
-tex1 = ''
-for rows in t._rows:
-    for column in rows:
-        if column == -1:
-            column = '\\textcolor{danger}{nicht durchführbar}'
-        tex1 = f'{tex1}{column} & '
 
-    tex1 = f'{tex1}\n'
 
 size = (1024, 768)
 print('###################################')
@@ -142,15 +134,6 @@ t.add_row([
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cpu'), 5),
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cuda'), 5)
 ])
-print(t)
-tex2 = ''
-for rows in t._rows:
-    for column in rows:
-        if column == -1:
-            column = '\\textcolor{danger}{nicht durchführbar}'
-        tex2 = f'{tex2}{column} & '
-
-    tex2 = f'{tex2}\n'
 
 size = (640, 480)
 print('###################################')
@@ -202,15 +185,3 @@ t.add_row([
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cpu'), 5),
     round(measure_average_time(3, 8, 'experiment__net9__s3__m8__residual_block.pth', size, iterations, 'cuda'), 5)
 ])
-print(t)
-tex3 = ''
-for rows in t._rows:
-    for column in rows:
-        if column == -1:
-            column = '\\textcolor{danger}{nicht durchführbar}'
-        tex3 = f'{tex3}{column} & '
-
-    tex3 = f'{tex3}\n'
-
-with open('tex_output.txt', 'w') as f:
-    f.write(f'{tex1}\n{tex2}\n{tex3}')
