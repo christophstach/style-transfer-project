@@ -15,6 +15,7 @@ class PerceptualLoss(nn.Module):
             content_weight=1,
             style_weight=1e7,
             total_variation_weight=0,
+            normalize=True
     ):
         super(PerceptualLoss, self).__init__()
 
@@ -36,10 +37,24 @@ class PerceptualLoss(nn.Module):
         self.style_loss_val = None
         self.total_variation_loss_val = None
         self.loss_val = None
+        self.normalize = normalize
 
         self.style_grams = [gram_matrix(style_feature) for style_feature in style_features]
 
+    def imagenet_normalization(self, images):
+        imagenet_mean = [0.485, 0.456, 0.406]
+        imagenet_std = [0.229, 0.224, 0.225]
+
+        mean = images.new_tensor(imagenet_mean).view(-1, 1, 1)
+        std = images.new_tensor(imagenet_std).view(-1, 1, 1)
+
+        return (images - mean) / std
+
     def forward(self, generated_images, input_images):
+        if self.normalize:
+            generated_images = self.imagenet_normalization(generated_images)
+            input_images = self.imagenet_normalization(generated_images)
+
         if generated_images.shape != input_images.shape:
             input_images = F.interpolate(input_images, size=(generated_images.shape[2], generated_images.shape[3]))
 

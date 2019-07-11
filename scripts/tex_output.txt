@@ -1,0 +1,29 @@
+Network 1 (s=5, m=32) & 8.40273 & \textcolor{danger}{nicht durchführbar} & 
+Network 2 (s=5, m=16) & 3.48497 & \textcolor{danger}{nicht durchführbar} & 
+Network 3 (s=5, m= 8) & 1.41309 & \textcolor{danger}{nicht durchführbar} & 
+Network 4 (s=4, m=32) & 7.72354 & \textcolor{danger}{nicht durchführbar} & 
+Network 5 (s=4, m=16) & 3.14903 & \textcolor{danger}{nicht durchführbar} & 
+Network 6 (s=4, m= 8) & 1.33121 & \textcolor{danger}{nicht durchführbar} & 
+Network 7 (s=3, m=32) & 7.03735 & \textcolor{danger}{nicht durchführbar} & 
+Network 8 (s=3, m=16) & 2.89367 & \textcolor{danger}{nicht durchführbar} & 
+Network 9 (s=3, m= 8) & 1.23819 & \textcolor{danger}{nicht durchführbar} & 
+
+Network 1 (s=5, m=32) & 2.89407 & \textcolor{danger}{nicht durchführbar} & 
+Network 2 (s=5, m=16) & 1.07447 & \textcolor{danger}{nicht durchführbar} & 
+Network 3 (s=5, m= 8) & 0.49604 & 0.0259 & 
+Network 4 (s=4, m=32) & 2.69659 & \textcolor{danger}{nicht durchführbar} & 
+Network 5 (s=4, m=16) & 0.99684 & \textcolor{danger}{nicht durchführbar} & 
+Network 6 (s=4, m= 8) & 0.45848 & 0.00579 & 
+Network 7 (s=3, m=32) & 2.48139 & \textcolor{danger}{nicht durchführbar} & 
+Network 8 (s=3, m=16) & 0.90792 & \textcolor{danger}{nicht durchführbar} & 
+Network 9 (s=3, m= 8) & 0.43214 & 0.00418 & 
+
+Network 1 (s=5, m=32) & 1.06722 & 0.041 & 
+Network 2 (s=5, m=16) & 0.42504 & 0.02476 & 
+Network 3 (s=5, m= 8) & 0.19953 & 0.0098 & 
+Network 4 (s=4, m=32) & 0.99393 & 0.01107 & 
+Network 5 (s=4, m=16) & 0.4073 & 0.00495 & 
+Network 6 (s=4, m= 8) & 0.18671 & 0.00501 & 
+Network 7 (s=3, m=32) & 0.92368 & 0.00432 & 
+Network 8 (s=3, m=16) & 0.3759 & 0.00426 & 
+Network 9 (s=3, m= 8) & 0.17397 & 0.00419 & 

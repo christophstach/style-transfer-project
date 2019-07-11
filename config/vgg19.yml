@@ -8,12 +8,12 @@ defaults:
   lr_step_size: 2350
   lr_multiplicator: 0.1
 
-  dataset: coco
+  dataset: coco/train2017
   dataset_path: /home/s0555912/.datasets/
-  epochs: 2
+  epochs: 4
   max_runtime: 0
   augmentation: true
-  batch_size: 16
+  batch_size: 24
 
   network: TRANSFORMER_NET
   channel_multiplier: 8
@@ -23,204 +23,221 @@ defaults:
   intermediate_activation_fn: PReLU
   final_activation_fn: Sigmoid
 
-  loss_network: vgg16
-  content_layers: [relu3_3]
-  style_layers: [relu1_2, relu2_2, relu3_3, relu4_3]
+  loss_network: vgg19
+  content_layers: [relu4_2]
+  style_layers: [relu1_1, relu2_1, relu3_1, relu4_1, relu5_1]
   content_weight: 1
   total_variation_weight: 0
   style_image_size: 512
-  content_image_size: 256
+  content_image_size: 224
 
 runs:
   # Vincent van Gogh
-  - the_starry_night:
+  - vgg19_the_starry_night:
       style_image: the_starry_night.jpg
       style_weight: 2e7
       attribution:
         name: The Starry Night
         author: Vincent van Gogh
+        author_url: https://en.wikipedia.org/wiki/Vincent_van_Gogh
         published_url: https://www.moma.org/collection/works/79802
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
 
-  - portrait_of_joseph_roulin:
+  - vgg19_portrait_of_joseph_roulin:
       style_image: portrait_of_joseph_roulin.jpg
       style_weight: 1e7
       attribution:
         name: Portrait of Joseph Roulin
         author: Vincent van Gogh
+        author_url: https://en.wikipedia.org/wiki/Vincent_van_Gogh
         published_url: https://www.moma.org/collection/works/79105
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
 
-  - the_olive_trees:
+  - vgg19_the_olive_trees:
       style_image: the_olive_trees.jpg
       style_weight: 2e7
       attribution:
         name: The Olive Trees
         author: Vincent van Gogh
+        author_url: https://en.wikipedia.org/wiki/Vincent_van_Gogh
         published_url: https://www.moma.org/collection/works/80013
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
 
   # Salvador Dalí
-  - the_persistence_of_memory:
+  - vgg19_the_persistence_of_memory:
       style_image: the_persistence_of_memory.jpg
       style_weight: 1e7
       attribution:
         name: The Persistence of Memory
         author: Salvador Dalí
+        author_url: https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD
         published_url: https://www.moma.org/collection/works/79018
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
 
-  - the_little_theater:
+  - vgg19_the_little_theater:
       style_image: the_little_theater.jpg
       style_weight: 1e7
       attribution:
         name: The Little Theater
         author: Salvador Dalí
+        author_url: https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD
         published_url: https://www.moma.org/collection/works/80884
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
-
-  # Pablo Picasso
-  - meditation:
-      style_image: meditation.jpg
-      style_weight: 1e7
-      attribution:
-        name: Meditation
-        author: Pablo Picasso
-        published_url: https://www.moma.org/collection/works/33823
-        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
-
-  - two_acrobats_with_a_dog:
-      style_image: two_acrobats_with_a_dog.jpg
-      style_weight: 2e7
-      attribution:
-        name: Two Acrobats with a Dog
-        author: Pablo Picasso
-        published_url: https://www.moma.org/collection/works/35378
-        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
-
-  - bathers_in_a_forest:
-      style_image: bathers_in_a_forest.jpg
-      style_weight: 1e7
-      attribution:
-        name: Bathers in a Forest
-        author: Pablo Picasso
-        published_url: https://www.moma.org/collection/works/33370
-        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
-
-  - still_life_with_liqueur_bottle:
-      style_image: still_life_with_liqueur_bottle.jpg
-      style_weight: 1e7
-      attribution:
-        name: Still Life with Liqueur Bottle
-        author: Pablo Picasso
-        published_url: https://www.moma.org/collection/works/78986
-        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
-
-  - ma_jolie:
-      style_image: ma_jolie.jpg
-      style_weight: 3e7
-      attribution:
-        name: Ma Jolie
-        author: Pablo Picasso
-        published_url: https://www.moma.org/collection/works/79051
-        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
-        credits_to: Musuem of Modern Arts (MoMA)
-        credits_to_url: https://www.moma.org
-
-  # Pexels
-  - photo_of_geological_formation:
-      style_image: photo_of_geological_formation.jpg
-      style_weight: 1e7
-      attribution:
-        name: Photo of Geological Formation
-        author: Vlad Chețan
-        published_url: https://www.pexels.com/photo/photo-of-geological-formation-2537641
-        terms_of_use_url: https://www.pexels.com/photo-license
-        credits_to: Pexels
-        credits_to_url: https://www.pexels.com
-
-  - crystal_glass_on_a_colorful_background:
-      style_image: crystal_glass_on_a_colorful_background.jpg
-      style_weight: 1e7
-      attribution:
-        name: Crystal Glass On A Colorful Background
-        author: Steve Johnson
-        published_url: https://www.pexels.com/photo/crystal-glass-on-a-colorful-background-2179374
-        terms_of_use_url: https://www.pexels.com/photo-license
-        credits_to: Pexels
-        credits_to_url: https://www.pexels.com
-
-  - multicolored_abstract_artwork:
-      style_image: multicolored_abstract_artwork.jpg
-      style_weight: 1e6
-      attribution:
-        name: Multicolored Abstract Artwork
-        author: Sharon McCutcheon
-        published_url: https://www.pexels.com/photo/abstract-abstract-painting-art-artistic-1149019
-        terms_of_use_url: https://www.pexels.com/photo-license
-        credits_to: Pexels
-        credits_to_url: https://www.pexels.com
-
-  - multicolored_abstract_art:
-      style_image: multicolored_abstract_art.jpg
-      style_weight: 3e6
-      attribution:
-        name: Multicolored Abstract Art
-        author: Amber Lamoreaux
-        published_url: https://www.pexels.com/photo/multicolored-abstract-art-2062637
-        terms_of_use_url: https://www.pexels.com/photo-license
-        credits_to: Pexels
-        credits_to_url: https://www.pexels.com
-
-  - teal_and_black_abstract_painting:
-      style_image: teal_and_black_abstract_painting.jpg
-      style_weight: 1e7
-      attribution:
-        name: Teal And Black Abstract Painting
-        author: Anni Roenkae
-        published_url: https://www.pexels.com/photo/teal-and-black-abstract-painting-2559624
-        terms_of_use_url: https://www.pexels.com/photo-license
-        credits_to: Pexels
-        credits_to_url: https://www.pexels.com
-
-  - abstract_painting:
-      style_image: abstract_painting.jpg
-      style_weight: 1e7
-      attribution:
-        name: Abstract Painting
-        author: Anni Roenkae
-        published_url: https://www.pexels.com/photo/abstract-painting-2156881
-        terms_of_use_url: https://www.pexels.com/photo-license
-        credits_to: Pexels
-        credits_to_url: https://www.pexels.com
 
   # Nasjonalmuseet
-  - the_scream:
+  - vgg19_the_scream:
       style_image: the_scream.jpg
       style_weight: 1e7
       attribution:
         name: The Scream
         author: Edvard Munch
+        author_url: https://en.wikipedia.org/wiki/Edvard_Munch
         published_url: http://samling.nasjonalmuseet.no/en/object/NG.M.00939
+        publisher: Nasjonalmuseet / Høstland, Børre
+        publisher_url: http://nasjonalmuseet.no
         terms_of_use_url: https://creativecommons.org/licenses/by-nc/4.0/deed.en
-        credits_to: Nasjonalmuseet / Høstland, Børre
-        credits_to_url: http://nasjonalmuseet.no
+
+  # Pablo Picasso
+  - vgg19_meditation:
+      style_image: meditation.jpg
+      style_weight: 1e7
+      attribution:
+        name: Meditation
+        author: Pablo Picasso
+        author_url: https://en.wikipedia.org/wiki/Pablo_Picasso
+        published_url: https://www.moma.org/collection/works/33823
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+
+  - vgg19_two_acrobats_with_a_dog:
+      style_image: two_acrobats_with_a_dog.jpg
+      style_weight: 2e7
+      attribution:
+        name: Two Acrobats with a Dog
+        author: Pablo Picasso
+        author_url: https://en.wikipedia.org/wiki/Pablo_Picasso
+        published_url: https://www.moma.org/collection/works/35378
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+
+  - vgg19_bathers_in_a_forest:
+      style_image: bathers_in_a_forest.jpg
+      style_weight: 1e7
+      attribution:
+        name: Bathers in a Forest
+        author: Pablo Picasso
+        author_url: https://en.wikipedia.org/wiki/Pablo_Picasso
+        published_url: https://www.moma.org/collection/works/33370
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+
+  - vgg19_still_life_with_liqueur_bottle:
+      style_image: still_life_with_liqueur_bottle.jpg
+      style_weight: 1e7
+      attribution:
+        name: Still Life with Liqueur Bottle
+        author: Pablo Picasso
+        author_url: https://en.wikipedia.org/wiki/Pablo_Picasso
+        published_url: https://www.moma.org/collection/works/78986
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+
+  - vgg19_ma_jolie:
+      style_image: ma_jolie.jpg
+      style_weight: 3e7
+      attribution:
+        name: Ma Jolie
+        author: Pablo Picasso
+        author_url: https://en.wikipedia.org/wiki/Pablo_Picasso
+        published_url: https://www.moma.org/collection/works/79051
+        publisher: Musuem of Modern Arts (MoMA)
+        publisher_url: https://www.moma.org
+        terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
+
+  # Pexels
+  - vgg19_photo_of_geological_formation:
+      style_image: photo_of_geological_formation.jpg
+      style_weight: 1e7
+      attribution:
+        name: Photo of Geological Formation
+        author: Vlad Chețan
+        author_url: http://vladchetan.ro
+        published_url: https://www.pexels.com/photo/photo-of-geological-formation-2537641
+        publisher: Pexels
+        publisher_url: https://www.pexels.com
+        terms_of_use_url: https://www.pexels.com/photo-license
+
+  - vgg19_crystal_glass_on_a_colorful_background:
+      style_image: crystal_glass_on_a_colorful_background.jpg
+      style_weight: 1e7
+      attribution:
+        name: Crystal Glass On A Colorful Background
+        author: Steve Johnson
+        author_url: https://www.pexels.com/@steve
+        published_url: https://www.pexels.com/photo/crystal-glass-on-a-colorful-background-2179374
+        publisher: Pexels
+        publisher_url: https://www.pexels.com
+        terms_of_use_url: https://www.pexels.com/photo-license
+
+  - vgg19_multicolored_abstract_artwork:
+      style_image: multicolored_abstract_artwork.jpg
+      style_weight: 1e6
+      attribution:
+        name: Multicolored Abstract Artwork
+        author: Sharon McCutcheon
+        author_url: https://unsplash.com/@sharonmccutcheon
+        published_url: https://www.pexels.com/photo/abstract-abstract-painting-art-artistic-1149019
+        publisher: Pexels
+        publisher_url: https://www.pexels.com
+        terms_of_use_url: https://www.pexels.com/photo-license
+
+  - vgg19_multicolored_abstract_art:
+      style_image: multicolored_abstract_art.jpg
+      style_weight: 3e6
+      attribution:
+        name: Multicolored Abstract Art
+        author: Amber Lamoreaux
+        author_url: https://www.etsy.com/shop/AmberLamoreauxArt
+        published_url: https://www.pexels.com/photo/multicolored-abstract-art-2062637
+        publisher: Pexels
+        publisher_url: https://www.pexels.com
+        terms_of_use_url: https://www.pexels.com/photo-license
+
+  - vgg19_teal_and_black_abstract_painting:
+      style_image: teal_and_black_abstract_painting.jpg
+      style_weight: 1e7
+      attribution:
+        name: Teal And Black Abstract Painting
+        author: Anni Roenkae
+        author_url: https://www.anniroenkae.com
+        published_url: https://www.pexels.com/photo/teal-and-black-abstract-painting-2559624
+        publisher: Pexels
+        publisher_url: https://www.pexels.com
+        terms_of_use_url: https://www.pexels.com/photo-license
+
+  - vgg19_abstract_painting:
+      style_image: abstract_painting.jpg
+      style_weight: 1e7
+      attribution:
+        name: Abstract Painting
+        author: Anni Roenkae
+        author_url: https://www.anniroenkae.com
+        published_url: https://www.pexels.com/photo/abstract-painting-2156881
+        terms_of_use_url: https://www.pexels.com/photo-license
+        publisher: Pexels
+        publisher_url: https://www.pexels.com
 

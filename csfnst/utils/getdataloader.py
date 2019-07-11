@@ -7,22 +7,25 @@ from PIL import ImageFile
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-IMAGENET_MEAN = [0.485, 0.456, 0.406]
-IMAGENET_STD = [0.229, 0.224, 0.225]
-
 
 def get_dataloader(config):
     dataset = datasets.ImageFolder(
         config['dataset_path'] + config['dataset'],
         transform=transforms.Compose([
-            transforms.RandomResizedCrop(config['content_image_size'])
+            transforms.Compose([
+                transforms.Resize(255),
+                transforms.RandomResizedCrop(config['content_image_size']),
+                transforms.RandomGrayscale(),
+                transforms.RandomHorizontalFlip(),
+                transforms.RandomVerticalFlip(),
+                transforms.RandomPerspective()
+            ])
             if config['augmentation'] else
             transforms.Compose([
                 transforms.Resize(config['content_image_size']),
                 transforms.CenterCrop(config['content_image_size'])
             ]),
             transforms.ToTensor()
-            # transforms.Normalize(IMAGENET_MEAN, IMAGENET_STD)
         ]),
 
     )
