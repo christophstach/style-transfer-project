@@ -13,7 +13,7 @@ def get_dataloader(config):
         config['dataset_path'] + config['dataset'],
         transform=transforms.Compose([
             transforms.Compose([
-                transforms.Resize(int(config['content_image_size']) * 1.1),
+                transforms.Resize(int(float(config['content_image_size']) * 1.1)),
                 transforms.RandomResizedCrop(config['content_image_size'])
             ])
             if config['augmentation'] else
