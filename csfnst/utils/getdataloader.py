@@ -15,7 +15,7 @@ def get_dataloader(config):
             transforms.Compose([
                 transforms.Resize(255),
                 transforms.RandomResizedCrop(config['content_image_size']),
-                transforms.RandomRotation([0, 10])
+                transforms.RandomRotation([-10, 10])
             ])
             if config['augmentation'] else
             transforms.Compose([
