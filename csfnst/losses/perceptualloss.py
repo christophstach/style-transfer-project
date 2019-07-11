@@ -15,7 +15,7 @@ class PerceptualLoss(nn.Module):
             content_weight=1,
             style_weight=1e7,
             total_variation_weight=0,
-            normalize=True
+            normalize=False
     ):
         super(PerceptualLoss, self).__init__()
 
