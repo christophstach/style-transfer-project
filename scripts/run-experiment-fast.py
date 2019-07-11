@@ -31,10 +31,9 @@ model = model.to(device).eval()
         return -1
 
 
-iterations = 10
+iterations = 1
 
-
-size = (100, 100)
+size = (640, 480)
 print('###################################')
 print('640*480')
 print('###################################')
