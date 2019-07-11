@@ -8,8 +8,8 @@ defaults:
   lr_step_size: 2350
   lr_multiplicator: 0.1
 
-  dataset: train2017
-  dataset_path: /home/s0555912/.datasets/coco/
+  dataset: coco
+  dataset_path: /home/s0555912/.datasets/
   epochs: 4
   max_runtime: 0
   augmentation: true
