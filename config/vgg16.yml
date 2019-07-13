@@ -1,5 +1,5 @@
 defaults:
-  active: true
+  active: false
   save_checkpoint_interval: 100
 
   lr_scheduler: None

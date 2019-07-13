@@ -29,6 +29,7 @@ defaults:
   total_variation_weight: 0
   style_image_size: 512
   content_image_size: 224
+  style_image: the_starry_night.jpg
 
   attribution:
     name: The Starry Night
