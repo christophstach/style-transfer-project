@@ -71,11 +71,12 @@ def load_style_model(style, device_type):
             'finalActivationFn': checkpoint['final_activation_fn'],
             'metaData': {
                 'attribution': {
-                    'author': checkpoint.get('meta_data', {}).get('attribution', {}).get('author'),
                     'name': checkpoint.get('meta_data', {}).get('attribution', {}).get('name'),
-                    'creditsTo': checkpoint.get('meta_data', {}).get('attribution', {}).get('credits_to'),
-                    'creditsToUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('credits_to_url'),
+                    'author': checkpoint.get('meta_data', {}).get('attribution', {}).get('author'),
+                    'authorUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('author_url'),
                     'publishedUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('published_url'),
+                    'publisher': checkpoint.get('meta_data', {}).get('attribution', {}).get('publisher'),
+                    'publisherUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('publisher_url'),
                     'termsOfUseUrl': checkpoint.get('meta_data', {}).get('attribution', {}).get('terms_of_use_url')
                 }
             }

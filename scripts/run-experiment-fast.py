@@ -6,7 +6,8 @@ from prettytable import PrettyTable
 def measure_average_time(s, m, checkpoint_name, image_size, runs=1, device_type='cuda'):
     setup = '''
 gc.enable()
-    
+
+import time
 import torch
 from csfnst.fastneuralstyle.networks import TransformerNet
 
@@ -15,9 +16,11 @@ m = %s
 device_type = "%s"
 device = torch.device(device_type)
 
-model = TransformerNet(bottleneck_size=s, channel_multiplier=m, intermediate_activation_fn='RReLU', final_activation_fn='Sigmoid')
+model = TransformerNet(bottleneck_size=s, channel_multiplier=m, intermediate_activation_fn='PReLU', final_activation_fn='Sigmoid')
 tensor = torch.randn((1, 3) + (%s, %s)).to(device)
 model = model.to(device).eval()    
+
+time.sleep(10)
     ''' % (s, m, device_type, image_size[0], image_size[1])
 
     code = 'model(tensor)'
@@ -31,7 +34,7 @@ model = model.to(device).eval()
         return -1
 
 
-iterations = 1
+iterations = 10
 
 size = (640, 480)
 print('###################################')
