@@ -111,8 +111,8 @@ class MobileVersionTwoBlock(nn.Module):
         self.norm2 = nn.InstanceNorm2d(inner_channels, affine=True)
         self.norm3 = nn.InstanceNorm2d(out_channels, affine=True)
 
-        self.activation_fn1 = get_activation_fn(activation_fn1)
-        self.activation_fn2 = get_activation_fn(activation_fn2)
+        self.activation_fn1 = get_activation_fn(activation_fn1, inner_channels)
+        self.activation_fn2 = get_activation_fn(activation_fn2, inner_channels)
 
     def forward(self, x):
         identity = x
@@ -190,8 +190,8 @@ class MobileVersionOneBlock(nn.Module):
         self.norm1 = nn.InstanceNorm2d(in_channels, affine=True)
         self.norm2 = nn.InstanceNorm2d(out_channels, affine=True)
 
-        self.activation_fn1 = get_activation_fn(activation_fn1)
-        self.activation_fn2 = get_activation_fn(activation_fn2)
+        self.activation_fn1 = get_activation_fn(activation_fn1, out_channels)
+        self.activation_fn2 = get_activation_fn(activation_fn2, out_channels)
 
     def forward(self, x):
         identity = x
