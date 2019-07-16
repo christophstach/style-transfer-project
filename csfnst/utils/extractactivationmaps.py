@@ -1,12 +1,12 @@
 def extract_activation_maps(image_batch, model, layers, detach=False):
-    class SaveActionMap:
+    class SaveActivationMap:
         def __init__(self):
             self.activation = []
 
         def hook(self, model, inpt, outpt):
             self.activation.append(outpt.detach() if detach else outpt)
 
-    sam = SaveActionMap()
+    sam = SaveActivationMap()
 
     handles = []
     for layer in layers:
