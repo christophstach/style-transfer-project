@@ -11,12 +11,12 @@ class BottleneckType(Enum):
     MOBILE_VERSION_TWO_BLOCK = 3
 
 
-def get_activation_fn(name):
+def get_activation_fn(name, channels):
     activation_fn_map = {
         'ELU': lambda: nn.ELU(),
         'ReLU': lambda: nn.ReLU(),
         'RReLU': lambda: nn.RReLU(),
-        'PReLU': lambda: nn.PReLU(),
+        'PReLU': lambda: nn.PReLU(channels),
         'SELU': lambda: nn.SELU(),
         'CELU': lambda: nn.CELU(),
         'ReLU6': lambda: nn.ReLU6(),
@@ -34,7 +34,7 @@ class ConvBlock(nn.Module):
 
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size, stride)
         self.norm = nn.InstanceNorm2d(out_channels, affine=True)
-        self.activation_fn = get_activation_fn(activation_fn)
+        self.activation_fn = get_activation_fn(activation_fn, out_channels)
 
     def forward(self, x):
         x = self.norm(self.conv(x))
@@ -80,7 +80,7 @@ class ResidualBlock(nn.Module):
         self.norm1 = nn.InstanceNorm2d(inner_channels, affine=True)
         self.norm2 = nn.InstanceNorm2d(out_channels, affine=True)
 
-        self.activation_fn = get_activation_fn(activation_fn)
+        self.activation_fn = get_activation_fn(activation_fn, inner_channels)
 
     def forward(self, x):
         identity = x

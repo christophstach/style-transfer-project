@@ -10,7 +10,7 @@ defaults:
 
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 3
+  epochs: 6
   max_runtime: 0
   augmentation: true
   batch_size: 24
@@ -41,38 +41,66 @@ defaults:
     terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
 
 runs:
-  - experiment__net1__s5__m32__residual_block:
+  - experiment1__net01__s5__m32__residual_block:
       bottleneck_size: 5
       channel_multiplier: 32
 
-  - experiment__net2__s5__m16__residual_block:
+  - experiment1__net02__s5__m16__residual_block:
       bottleneck_size: 5
       channel_multiplier: 16
 
-  - experiment__net3__s5__m8__residual_block:
+  - experiment1__net03__s5__m8__residual_block:
       bottleneck_size: 5
       channel_multiplier: 8
 
-  - experiment__net4__s4__m32__residual_block:
+  - experiment1__net04__s5__m4__residual_block:
+      bottleneck_size: 5
+      channel_multiplier: 4
+
+  - experiment1__net05__s4__m32__residual_block:
       bottleneck_size: 4
       channel_multiplier: 32
 
-  - experiment__net5__s4__m16__residual_block:
+  - experiment1__net06__s4__m16__residual_block:
       bottleneck_size: 4
       channel_multiplier: 16
 
-  - experiment__net6__s4__m8__residual_block:
+  - experiment1__net07__s4__m8__residual_block:
       bottleneck_size: 4
       channel_multiplier: 8
 
-  - experiment__net7__s3__m32__residual_block:
+  - experiment1__net08__s4__m4__residual_block:
+      bottleneck_size: 4
+      channel_multiplier: 4
+
+  - experiment1__net09__s3__m32__residual_block:
       bottleneck_size: 3
       channel_multiplier: 32
 
-  - experiment__net8__s3__m16__residual_block:
+  - experiment1__net10__s3__m16__residual_block:
       bottleneck_size: 3
       channel_multiplier: 16
 
-  - experiment__net9__s3__m8__residual_block:
+  - experiment1__net11__s3__m8__residual_block:
       bottleneck_size: 3
       channel_multiplier: 8
+
+  - experiment1__net12__s3__m4__residual_block:
+      bottleneck_size: 3
+      channel_multiplier: 4
+
+  - experiment1__net13__s2__m32__residual_block:
+      bottleneck_size: 2
+      channel_multiplier: 32
+
+  - experiment1__net14__s2__m16__residual_block:
+      bottleneck_size: 2
+      channel_multiplier: 16
+
+  - experiment1__net15__s2__m8__residual_block:
+      bottleneck_size: 2
+      channel_multiplier: 8
+
+  - experiment1__net16__s2__m4__residual_block:
+      bottleneck_size: 2
+      channel_multiplier: 4
