@@ -1,5 +1,5 @@
 defaults:
-  active: true
+  active: false
   save_checkpoint_interval: 100
 
   lr_scheduler: None
@@ -10,14 +10,14 @@ defaults:
 
   dataset: coco
   dataset_path: /home/s0555912/.datasets/
-  epochs: 3
+  epochs: 6
   max_runtime: 0
   augmentation: true
   batch_size: 24
 
   network: TRANSFORMER_NET
-  channel_multiplier: 8
-  bottleneck_size: 5
+  channel_multiplier: 16
+  bottleneck_size: 3
   bottleneck_type: RESIDUAL_BLOCK
   expansion_factor: 6
   intermediate_activation_fn: PReLU
@@ -195,7 +195,7 @@ runs:
 
   - vgg19_multicolored_abstract_artwork:
       style_image: multicolored_abstract_artwork.jpg
-      style_weight: 1e6
+      style_weight: 8e5
       attribution:
         name: Multicolored Abstract Artwork
         author: Sharon McCutcheon
