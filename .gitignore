@@ -1,4 +1,5 @@
 .idea
+.venv
 *.egg-info
 *.pyc
 *-checkpoint.ipynb
