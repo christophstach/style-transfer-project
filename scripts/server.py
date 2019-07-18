@@ -160,7 +160,6 @@ if __name__ == '__main__':
         for checkpoint_path in model_names
         if isfile(CHECKPOINTS_PATH + '/' + checkpoint_path)
            and '.pth' in checkpoint_path
-           and 'experiment' not in checkpoint_path
     ]
 
     for path in model_names:

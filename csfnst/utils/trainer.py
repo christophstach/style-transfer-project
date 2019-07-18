@@ -86,13 +86,13 @@ class Trainer:
             self.scheduler = None
 
         if tensorboard:
-            self.tensorboard_writer = SummaryWriter(log_dir=os.path.join('../runs', config['name']))
+            self.tensorboard_writer = SummaryWriter(log_dir=os.path.join('./runs', config['name']))
         else:
             self.tensorboard_writer = None
 
     def load_checkpoint(self):
         name = self.config['name']
-        path = f'../checkpoints/{name}.pth'
+        path = f'./checkpoints/{name}.pth'
 
         if os.path.exists(path):
             checkpoint = torch.load(path)
@@ -128,7 +128,7 @@ class Trainer:
                     self.scheduler.step()
 
                 if i % self.config['save_checkpoint_interval'] == 0:
-                    self.save_checkpoint(f'../checkpoints/{self.config["name"]}.pth')
+                    self.save_checkpoint(f'./checkpoints/{self.config["name"]}.pth')
 
                 if time() - start >= self.config['max_runtime'] != 0:
                     break

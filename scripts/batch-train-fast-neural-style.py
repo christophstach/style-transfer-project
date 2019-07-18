@@ -6,7 +6,7 @@ import yaml
 from csfnst.fastneuralstyle.networks import NetworkArchitecture, BottleneckType
 from csfnst.utils import get_configs, get_model, get_criterion, get_dataloader, Trainer
 
-run_configs_path = '../config/'
+run_configs_path = './config/'
 
 
 def get_runs(config_file):
