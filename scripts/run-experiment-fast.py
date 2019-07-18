@@ -1,8 +1,8 @@
-from timeit import Timer
 import argparse
+from timeit import Timer
 
 
-def measure_average_time(s, m, checkpoint_name, image_size, runs=1, device_type='cuda'):
+def measure_average_time(bottleneck_size, channel_multiplier, image_size, iterations, device_type='cuda'):
     setup = '''
 gc.enable()
 
@@ -20,7 +20,7 @@ tensor = torch.randn((1, 3) + (%s, %s)).to(device)
 model = model.to(device).eval()    
 
 time.sleep(10)
-    ''' % (s, m, device_type, image_size[0], image_size[1])
+    ''' % (bottleneck_size, channel_multiplier, device_type, image_size[0], image_size[1])
 
     code = 'model(tensor)'
 
@@ -28,19 +28,32 @@ time.sleep(10)
         return Timer(
             stmt=code,
             setup=setup
-        ).timeit(runs) / float(runs)
+        ).timeit(iterations) / float(iterations)
     except Exception as e:
         return -1
 
 
-iterations = 10
-
 parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('integers', metavar='N', type=int, nargs='+',
-                   help='an integer for the accumulator')
-parser.add_argument('--sum', dest='accumulate', action='store_const',
-                   const=sum, default=max,
-                   help='sum the integers (default: find the max)')
+parser.add_argument('--bottleneck_size', required=True)
+parser.add_argument('--channel_multiplier', required=True)
+parser.add_argument('--width', required=True)
+parser.add_argument('--height', required=True)
+parser.add_argument('--iterations', default=10)
+parser.add_argument('--device_type', default='cuda')
 
 args = parser.parse_args()
-print(args.accumulate(args.integers))
+result = measure_average_time(
+    bottleneck_size=args.bottleneck_size,
+    channel_multiplier=args.channel_multiplier,
+    image_size=(args.width, args.height),
+    iterations=args.iterations,
+    device_type=args.device_type
+)
+print(
+    f'bottlneck_size={args.bottleneck_size},'
+    f' channel_multiplier={args.channel_multiplier},'
+    f' image_size={args.width}x{args.height},'
+    f' iterations={args.iterations},'
+    f' device_type={args.device_type},'
+    f' result={result}'
+)

@@ -1,0 +1,34 @@
+GPU
+bottlneck_size=5, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cuda, result=0.05154767779999929
+bottlneck_size=5, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cuda, result=0.02325503250000338
+bottlneck_size=5, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cuda, result=0.01053812270000094
+bottlneck_size=5, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cuda, result=0.007166389799999706
+bottlneck_size=4, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cuda, result=0.018900497999999287
+bottlneck_size=4, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cuda, result=0.005789111100000355
+bottlneck_size=4, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cuda, result=0.0057076872999971325
+bottlneck_size=4, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cuda, result=0.0053607313999975755
+bottlneck_size=3, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cuda, result=0.019909988599999907
+bottlneck_size=3, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cuda, result=0.0050235813999961465
+bottlneck_size=3, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cuda, result=0.004795039800001177
+bottlneck_size=3, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cuda, result=0.0045764696999981425
+bottlneck_size=2, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cuda, result=0.013828827600002569
+bottlneck_size=2, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cuda, result=0.004408729199997197
+bottlneck_size=2, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cuda, result=0.004137012199998935
+bottlneck_size=2, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cuda, result=0.003946691399994507
+CPU
+bottlneck_size=5, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cpu, result=1.3353788526000017
+bottlneck_size=5, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cpu, result=0.5388855400000011
+bottlneck_size=5, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cpu, result=0.2544807741
+bottlneck_size=5, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cpu, result=0.1379762272999983
+bottlneck_size=4, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cpu, result=1.2360387474999925
+bottlneck_size=4, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cpu, result=0.506658228799995
+bottlneck_size=4, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cpu, result=0.2376913097000056
+bottlneck_size=4, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cpu, result=0.1290304261000074
+bottlneck_size=3, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cpu, result=1.137546385899998
+bottlneck_size=3, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cpu, result=0.4609025291999956
+bottlneck_size=3, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cpu, result=0.2210107794999999
+bottlneck_size=3, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cpu, result=0.12268850000000384
+bottlneck_size=2, channel_multiplier=32, image_size=640x480, iterations=10, device_type=cpu, result=1.0540077361000044
+bottlneck_size=2, channel_multiplier=16, image_size=640x480, iterations=10, device_type=cpu, result=0.43314194899999164
+bottlneck_size=2, channel_multiplier=8, image_size=640x480, iterations=10, device_type=cpu, result=0.20557225500000414
+bottlneck_size=2, channel_multiplier=4, image_size=640x480, iterations=10, device_type=cpu, result=0.11305705440000793
