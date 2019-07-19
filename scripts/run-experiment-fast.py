@@ -50,7 +50,7 @@ result = measure_average_time(
     device_type=args.device_type
 )
 print(
-    f'bottlneck_size={args.bottleneck_size},'
+    f'bottleneck_size={args.bottleneck_size},'
     f' channel_multiplier={args.channel_multiplier},'
     f' image_size={args.width}x{args.height},'
     f' iterations={args.iterations},'

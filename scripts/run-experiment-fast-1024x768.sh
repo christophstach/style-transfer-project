@@ -2,44 +2,44 @@
 
 echo 'GPU'
 # GPU
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
 
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
 
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
 
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=32 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=16 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=8 --width=1024 --height=768 --device_type=cuda
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=4 --width=1024 --height=768 --device_type=cuda
 
 echo 'CPU'
 # CPU
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=5 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
 
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=4 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
 
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=3 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
 
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
-python scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=32 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=16 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=8 --width=1024 --height=768 --device_type=cpu
+python3 scripts/run-experiment-fast.py --bottleneck_size=2 --channel_multiplier=4 --width=1024 --height=768 --device_type=cpu
