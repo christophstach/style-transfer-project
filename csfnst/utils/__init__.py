@@ -13,3 +13,4 @@ from .saveimagetensor import save_image_tensor
 from .trainer import Trainer
 from .unzip import unzip
 from .getcriterion import get_criterion
+from .getcheckpoint import get_checkpoint
