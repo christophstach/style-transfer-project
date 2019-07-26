@@ -31,7 +31,7 @@ def get_criterion(config, device):
     with torch.no_grad():
         device = torch.device('cuda' if torch.cuda.is_available() and device == 'cuda' else 'cpu')
 
-        style_image_file = f'../images/style/{config["style_image"]}'
+        style_image_file = f'./images/style/{config["style_image"]}'
         style_image = load_image(style_image_file, size=config['style_image_size']).to(device)
         last_layer = get_last_layer(list(set(config['content_layers'] + config['style_layers'])),
                                     config['loss_network'] == 'vgg19')
