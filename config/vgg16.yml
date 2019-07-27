@@ -1,5 +1,5 @@
 defaults:
-  active: false
+  active: true
   save_checkpoint_interval: 100
 
   lr_scheduler: None
@@ -17,7 +17,7 @@ defaults:
 
   network: TRANSFORMER_NET
   channel_multiplier: 16
-  bottleneck_size: 3
+  bottleneck_size: 5
   bottleneck_type: RESIDUAL_BLOCK
   expansion_factor: 6
   intermediate_activation_fn: PReLU
@@ -35,7 +35,7 @@ runs:
   # Vincent van Gogh
   - vgg16_the_starry_night:
       style_image: the_starry_night.jpg
-      style_weight: 1e7
+      style_weight: 5e7
       attribution:
         name: The Starry Night
         author: Vincent van Gogh
@@ -241,3 +241,14 @@ runs:
         publisher: Pexels
         publisher_url: https://www.pexels.com
 
+  - vgg16_art_big_data_blur:
+      style_image: art_big_data_blur.jpg
+      style_weight: 2e7
+      attribution:
+        name: Time Lapse Photography of Blue Lights
+        author: Pixabay
+        author_url: https://pixabay.com/
+        published_url: https://www.pexels.com/photo/abstract-art-blur-bright-373543
+        terms_of_use_url: https://www.pexels.com/photo-license
+        publisher: Pexels
+        publisher_url: https://www.pexels.com

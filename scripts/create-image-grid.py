@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 
 from csfnst.utils import load_image, get_checkpoint, flatten
 
-experiment = 'experiment2'
+experiment = 'experiment1'
 image = load_image('./images/content/htw-768x768.jpg').unsqueeze(0)
 output_image_path = './images/experiments/'
 checkpoints_path = './checkpoints/'
@@ -34,5 +34,5 @@ for i, checkpoint in enumerate(checkpoints):
     axs[i].tick_params(labelbottom=False, labelleft=False, top=False, right=False, bottom=False, left=False)
     axs[i].imshow(output_image)
 
-plt.savefig(f'{output_image_path}fast_image_grid_{experiment}.jpg', dpi=600)
+plt.savefig(f'{output_image_path}fast_image_grid_{experiment}.jpg', dpi=400)
 plt.show()

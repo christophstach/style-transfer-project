@@ -1,5 +1,5 @@
 defaults:
-  active: true
+  active: false
   save_checkpoint_interval: 100
 
   lr_scheduler: None
@@ -42,22 +42,18 @@ defaults:
 
 runs:
   - experiment1__net01__s5__m32__residual_block:
-      active: false
       bottleneck_size: 5
       channel_multiplier: 32
 
   - experiment1__net02__s5__m16__residual_block:
-      active: false
       bottleneck_size: 5
       channel_multiplier: 16
 
   - experiment1__net03__s5__m8__residual_block:
-      active: false
       bottleneck_size: 5
       channel_multiplier: 8
 
   - experiment1__net04__s5__m4__residual_block:
-      active: false
       bottleneck_size: 5
       channel_multiplier: 4
 

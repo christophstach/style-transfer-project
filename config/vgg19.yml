@@ -241,3 +241,14 @@ runs:
         publisher: Pexels
         publisher_url: https://www.pexels.com
 
+  - vgg16_art_big_data_blur:
+      style_image: art_big_data_blur.jpg
+      style_weight: 2e7
+      attribution:
+        name: Time Lapse Photography of Blue Lights
+        author: Pixabay
+        author_url: https://pixabay.com/
+        published_url: https://www.pexels.com/photo/abstract-art-blur-bright-373543
+        terms_of_use_url: https://www.pexels.com/photo-license
+        publisher: Pexels
+        publisher_url: https://www.pexels.com

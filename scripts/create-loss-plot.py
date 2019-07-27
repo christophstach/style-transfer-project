@@ -22,7 +22,7 @@ checkpoints = [
 ]
 checkpoints.sort()
 
-fig, ax = plt.subplots(1, 1, figsize=(10, 5), sharex='row', sharey='col')
+fig, ax = plt.subplots(1, 1, figsize=(16, 8), sharex='row', sharey='col')
 fig.subplots_adjust(wspace=.025, hspace=.025)
 legend_items = []
 for i, checkpoint in enumerate(checkpoints):
