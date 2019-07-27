@@ -14,3 +14,4 @@ from .trainer import Trainer
 from .unzip import unzip
 from .getcriterion import get_criterion
 from .getcheckpoint import get_checkpoint
+from .flatten import flatten
