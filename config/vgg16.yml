@@ -35,7 +35,7 @@ runs:
   # Vincent van Gogh
   - vgg16_the_starry_night:
       style_image: the_starry_night.jpg
-      style_weight: 5e7
+      style_weight: 3e7
       attribution:
         name: The Starry Night
         author: Vincent van Gogh
@@ -46,6 +46,7 @@ runs:
         terms_of_use_url: https://www.moma.org/about/about-this-site/#terms-of-use
 
   - vgg16_portrait_of_joseph_roulin:
+      active: false
       style_image: portrait_of_joseph_roulin.jpg
       style_weight: 1e7
       attribution:
@@ -59,7 +60,7 @@ runs:
 
   - vgg16_the_olive_trees:
       style_image: the_olive_trees.jpg
-      style_weight: 2e7
+      style_weight: 3e7
       attribution:
         name: The Olive Trees
         author: Vincent van Gogh
