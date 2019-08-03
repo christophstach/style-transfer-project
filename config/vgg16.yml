@@ -1,5 +1,5 @@
 defaults:
-  active: true
+  active: false
   save_checkpoint_interval: 100
 
   lr_scheduler: None
@@ -242,8 +242,9 @@ runs:
         publisher_url: https://www.pexels.com
 
   - vgg16_art_big_data_blur:
+      active: true
       style_image: art_big_data_blur.jpg
-      style_weight: 2e7
+      style_weight: 8e6
       attribution:
         name: Time Lapse Photography of Blue Lights
         author: Pixabay
