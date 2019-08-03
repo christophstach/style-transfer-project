@@ -33,7 +33,7 @@ def get_criterion(config, device):
         device = torch.device('cuda' if torch.cuda.is_available() and device == 'cuda' else 'cpu')
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        style_image_file = os.path.realpath(f'{dir_path}/../images/style/{config["style_image"]}')
+        style_image_file = os.path.realpath(f'{dir_path}/../../images/style/{config["style_image"]}')
         style_image = load_image(style_image_file, size=config['style_image_size']).to(device)
         last_layer = get_last_layer(list(set(config['content_layers'] + config['style_layers'])),
                                     config['loss_network'] == 'vgg19')
