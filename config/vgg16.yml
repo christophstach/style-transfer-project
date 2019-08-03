@@ -245,7 +245,7 @@ runs:
   - vgg16_art_big_data_blur:
       active: true
       style_image: art_big_data_blur.jpg
-      style_weight: 8e6
+      style_weight: 5e6
       attribution:
         name: Time Lapse Photography of Blue Lights
         author: Pixabay
