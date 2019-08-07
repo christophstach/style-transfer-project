@@ -46,7 +46,7 @@ def run_experiment(
     }
 
     criterion = get_criterion(config, device='cpu' if force_cpu else 'cuda')
-    optimizer = optim.LBFGS([output_image]) if use_lbfgs else optim.Adam([output_image], lr=1e-1)
+    optimizer = optim.LBFGS([output_image]) if use_lbfgs else optim.Adam([output_image], lr=1e-3)
     content_image.unsqueeze_(0)
 
     output_image.unsqueeze_(0)
