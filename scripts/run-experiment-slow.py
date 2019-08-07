@@ -19,7 +19,7 @@ def run_experiment(
         use_lbfgs=False
 ):
     output_image_file = realpath(f'{dirname(realpath(__file__))}/../images/experiments/')
-    output_image_file += f'{prefix}__{splitext(basename(style_image_file))[0]}'
+    output_image_file += f'/{prefix}__{splitext(basename(style_image_file))[0]}'
     output_image_file += f'__{content_image_size}x{content_image_size}'
     output_image_file += f'__style-weight_{style_weight:,.0e}__tv-weight_{tv_weight:,.0e}.jpg'
 
