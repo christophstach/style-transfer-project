@@ -12,7 +12,7 @@ def run_experiment(
         content_image_size,
         style_weight,
         tv_weight,
-        epochs=1000,
+        epochs=2500,
         prefix='htw',
         content_image_file=realpath(f'{dirname(realpath(__file__))}/../images/content/htw-768x768.jpg'),
         use_random_noise=False,
