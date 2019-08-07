@@ -13,11 +13,11 @@ def run_experiment(
         content_image_size,
         style_weight,
         tv_weight,
-        epochs=5,
+        epochs=1000,
         prefix='htw',
         content_image_file='../images/content/htw-768x768.jpg',
         use_random_noise=False,
-        use_lbfgs=True
+        use_lbfgs=False
 ):
     output_image_file = f'../images/experiments/'
     output_image_file += f'{prefix}__{splitext(basename(style_image_file))[0]}'
