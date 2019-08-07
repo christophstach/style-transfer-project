@@ -1,4 +1,4 @@
-from os.path import basename, splitext
+from os.path import basename, splitext, dirname, realpath
 
 import torch
 import torch.optim as optim
@@ -15,11 +15,11 @@ def run_experiment(
         tv_weight,
         epochs=1000,
         prefix='htw',
-        content_image_file='../images/content/htw-768x768.jpg',
+        content_image_file=realpath(f'{dirname(realpath(__file__))}/../images/content/htw-768x768.jpg'),
         use_random_noise=False,
         use_lbfgs=False
 ):
-    output_image_file = f'../images/experiments/'
+    output_image_file = realpath(f'{dirname(realpath(__file__))}/../images/experiments/')
     output_image_file += f'{prefix}__{splitext(basename(style_image_file))[0]}'
     output_image_file += f'__{content_image_size}x{content_image_size}'
     output_image_file += f'__style-weight_{style_weight:,.0e}__tv-weight_{tv_weight:,.0e}.jpg'
@@ -124,8 +124,13 @@ run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size
 run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e7, tv_weight=1e-4)
 run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e7, tv_weight=1e-3)
 
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-7)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-6)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-5)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-4)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-3)
+run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
+               tv_weight=1e-7)
+run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
+               tv_weight=1e-6)
+run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
+               tv_weight=1e-5)
+run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
+               tv_weight=1e-4)
+run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
+               tv_weight=1e-3)
