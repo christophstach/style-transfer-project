@@ -259,7 +259,7 @@ runs:
   - vgg16_cassi_josh_unsplash:
       active: true
       style_image: cassi_josh_unsplash.jpg
-      style_weight: 5e6
+      style_weight: 1e7
       attribution:
         name: Cassi Josh Unsplash
         author: Cassi Josh
@@ -272,7 +272,7 @@ runs:
   - vgg16_richard_m_unsplash:
       active: true
       style_image: richard_m_unsplash.jpg
-      style_weight: 5e6
+      style_weight: 1e6
       attribution:
         name: Richard M. Unsplash
         author: Richard M.
