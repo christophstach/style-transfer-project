@@ -12,7 +12,7 @@ def run_experiment(
         content_image_size,
         style_weight,
         tv_weight,
-        epochs=2500,
+        epochs=3000,
         prefix='htw',
         content_image_file=realpath(f'{dirname(realpath(__file__))}/../images/content/htw-768x768.jpg'),
         use_random_noise=False,
@@ -110,11 +110,11 @@ run_experiment(prefix='a', style_image_file='the_scream.jpg', content_image_size
 run_experiment(prefix='a', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e8, tv_weight=0)
 run_experiment(prefix='a', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e9, tv_weight=0)
 
-run_experiment(prefix='a', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e5, tv_weight=0)
-run_experiment(prefix='a', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e6, tv_weight=0)
-run_experiment(prefix='a', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e7, tv_weight=0)
-run_experiment(prefix='a', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=0)
-run_experiment(prefix='a', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e9, tv_weight=0)
+run_experiment(prefix='a', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e5, tv_weight=0)
+run_experiment(prefix='a', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e6, tv_weight=0)
+run_experiment(prefix='a', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e7, tv_weight=0)
+run_experiment(prefix='a', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=0)
+run_experiment(prefix='a', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e9, tv_weight=0)
 
 # Total-Variation
 run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e7, tv_weight=1e-7)
@@ -123,13 +123,8 @@ run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size
 run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e7, tv_weight=1e-4)
 run_experiment(prefix='b', style_image_file='the_scream.jpg', content_image_size=768, style_weight=1e7, tv_weight=1e-3)
 
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
-               tv_weight=1e-7)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
-               tv_weight=1e-6)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
-               tv_weight=1e-5)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
-               tv_weight=1e-4)
-run_experiment(prefix='b', style_image_file='starry_night.jpg', content_image_size=768, style_weight=1e8,
-               tv_weight=1e-3)
+run_experiment(prefix='b', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-7)
+run_experiment(prefix='b', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-6)
+run_experiment(prefix='b', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-5)
+run_experiment(prefix='b', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-4)
+run_experiment(prefix='b', style_image_file='the_starry_night.jpg', content_image_size=768, style_weight=1e8, tv_weight=1e-3)
