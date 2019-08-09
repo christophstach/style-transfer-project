@@ -243,7 +243,6 @@ runs:
         publisher_url: https://www.pexels.com
 
   - vgg16_art_big_data_blur:
-      active: true
       style_image: art_big_data_blur.jpg
       style_weight: 5e6
       attribution:
@@ -254,3 +253,31 @@ runs:
         terms_of_use_url: https://www.pexels.com/photo-license
         publisher: Pexels
         publisher_url: https://www.pexels.com
+
+# Unsplash
+
+  - vgg16_cassi_josh_unsplash:
+      active: true
+      style_image: cassi_josh_unsplash.jpg
+      style_weight: 5e6
+      attribution:
+        name: Cassi Josh Unsplash
+        author: Cassi Josh
+        author_url: https://unsplash.com/@cassi_josh
+        published_url: https://unsplash.com/photos/lhnOvu72BM8
+        terms_of_use_url: https://unsplash.com/license
+        publisher: Unsplash
+        publisher_url: https://unsplash.com
+
+  - vgg16_richard_m_unsplash:
+      active: true
+      style_image: richard_m_unsplash.jpg
+      style_weight: 5e6
+      attribution:
+        name: Richard M. Unsplash
+        author: Richard M.
+        author_url: https://unsplash.com/@dvlprr
+        published_url: https://unsplash.com/photos/Sewc0TdvV-o
+        terms_of_use_url: https://unsplash.com/license
+        publisher: Unsplash
+        publisher_url: https://unsplash.com
