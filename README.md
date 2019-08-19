@@ -18,4 +18,5 @@ Run:
  - scripts to train networks and to make experiments are located in the subfolder ./scripts
  - to experiment with neural style transfer run ./notebooks/run-slow.ipynb
  - to experiment with fast neural style transfer run ./notebooks/run-fast.ipynb
+ - to see a summary for supported network archtiectures run ./notebooks/run-summary.ipynb
  - run all scripts from root folder of the project
